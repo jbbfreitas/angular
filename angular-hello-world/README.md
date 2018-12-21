@@ -114,10 +114,11 @@ Mais abaixo no arquivo `hello-world.component.ts`, temos uma declaração de que
     <app-hello-world></app-hello-world>
    </h1>
 </div>
+```
 <p align="center">
    <strong>Listagem 2- Template app.component.html</strong> 
 </p>
-```
+
 
 **e.** Executando a aplicação  
 
@@ -171,7 +172,25 @@ export class UserItemComponent implements OnInit {
 }
 
 ```
-**c.** No VSC  edite o arquivo `app.component.html` conforme Listagem 3
+<p align="center">
+   <strong>Listagem 3- user-item.component.ts</strong> 
+</p>
+
+**c.** No VSC  edite o arquivo `hello-world.component.html` conforme Listagem 1
+
+```html
+<p>
+  Olá turma:
+  <li *ngFor = "let name of names">{{ name }}</li>
+</p>
+<hr>
+Estão gostando do Angular?```
+```
+<p align="center">
+   <strong>Listagem 4- Template hello-world.component.html</strong> 
+</p>
+
+**d.** No VSC  edite o arquivo `app.component.html` conforme Listagem 3
 
 
 ```html
@@ -182,12 +201,14 @@ export class UserItemComponent implements OnInit {
     <app-user-item></app-user-item>
  </h1>
 </div>
+```
 <p align="center">
-   <strong>Listagem 3- Template app.component.html com o novo componente</strong> 
+   <strong>Listagem5- Template app.component.html com o novo componente</strong> 
 </p>
 ```
 
-**d.** Executando a aplicação  
+
+**e.** Executando a aplicação  
 
 No prompt de comandos, na pasta Angular/angular-hello-world,  digite:
 ```
