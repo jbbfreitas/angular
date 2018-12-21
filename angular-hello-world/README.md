@@ -11,7 +11,7 @@ Neste aplicativo simples, abordaremos a maioria dos aspectos essenciais do Angul
 
 #### 1. Construção de componentes personalizados 
 
-:mortar_board:Novo conceito
+::: :mortar_board Novo conceito :::
 
 Primeiramente vamos definir o que vem a ser um componente para o Angular
 
