@@ -4,7 +4,7 @@ Este projeto foi gerado usando o  [Angular CLI](https://github.com/angular/angul
 
 ## Servidor de Desenvolvimnento
 
-Para executar o servidor de desenvolvmento faça `ng serve` . Use o browse e navigue até  `http://localhost:4200/`. Esta aplicação faz o `reload` automático semore que algum código-fonte for alterado.
+Para executar o servidor de desenvolvmento faça `ng serve` . Use o browse e navegue até  `http://localhost:4200/`. Esta aplicação faz o `reload` automático sempre que algum código-fonte for alterado.
 
 ## Código gerado automaticamente (scaffolding)
 
@@ -24,4 +24,4 @@ Use `ng e2e` para executar o teste end-to-end  usando o  [Protractor](http://www
 
 ## Mais informações
 
-para obter mais informações sobre o Angular CLI use `ng help` ou faça o --check out-- do [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Para obter mais informações sobre o Angular CLI use `ng help` ou faça o --check out-- do [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
