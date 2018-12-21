@@ -161,9 +161,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-item.component.css']
 })
 export class UserItemComponent implements OnInit {
-  names: string[];
+  nomes: string[];
   constructor() {
-    this.names = ['Antônio', 'Isael', 'João Bosco', 'Mauricio', 'Renato', 'Weber']; // nome dos componentes do Grupo ABIM
+    this.nomes = ['Antônio', 'Isael', 'João Bosco', 'Mauricio', 'Renato', 'Weber']; // nome dos componentes do Grupo ABIM
   }
 
   ngOnInit() {
@@ -181,7 +181,7 @@ export class UserItemComponent implements OnInit {
 ```html
 <p>
   Olá turma:
-  <li *ngFor = "let name of names">{{ name }}</li>
+  <li *ngFor = "let nome of nomes">{{ nome }}</li>
 </p>
 <hr>
 Estão gostando do Angular?```
