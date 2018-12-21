@@ -59,25 +59,16 @@ Você vai observar que o Angular usa muitos arquivos que devem estar oreganizado
 
 **d.** Verifique a versão que foi instalada, digitanto `ng --version`
 
-**e.** No diretorio GrupoDeEstudo/Angular, crie uma nova pasta: 
 
-
-`mkdir -p GrupoDeEstudo/Angular/primo` em sistemas `*nix`:
-```
-└── GrupoDeEstudo
-    └── Angular
-        └── primo         
-```  
-
-**f.** Na pasta `primo`, digite o seguinte comando no prompt: 
+**e.** Na pasta `Angular`, digite o seguinte comando no prompt: 
 
 ```
-ng new ola-mundo
+ng new primo
 ```
 Veja na Figura 2 o que foi criado pelo Angular CLI
 
 <p align="center">
-  <img src="imagens/EstruturaPastas.png" alt="Estrutura de pastas criada peloi Angula CLI">
+  <img src="imagens/EstruturaDePastas.png" alt="Estrutura de pastas criada peloi Angula CLI">
 </p>
 <p align="center">
    <strong>Figura 2- Estrutura de pastas criada peloi Angula CLI para o projeto ola-mundo</strong> 
