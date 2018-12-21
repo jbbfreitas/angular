@@ -106,7 +106,7 @@ No browser digite:
 
 #### 4. Executando testes unitários usando o Karma
 
-Com o VSC e edit o arquivo `app.component.spec.ts` para o código abaixo:
+Usando o VSC altere o arquivo `app.component.spec.ts` para o conteúdo do código abaixo:
 
 ```TypeScript
 import { TestBed, async } from '@angular/core/testing';
@@ -140,9 +140,12 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('Olá Mundo! Seja bem-vindo ao');
   });
 });
-
-
 ```
+No prompt de comandos, execute
+
+`ng test`
+
+Pronto! Você criou e executou os testes unitários na sua primeira aplicação Angular
 
 
 
