@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserItemComponent implements OnInit {
   nomes: string[];
   constructor() {
-    this.nomes = ['Antônio', 'Isael', 'João Bosco', 'Weber', 'Renato', 'Maurício']; // set the name
+    this.nomes = ['Antônio', 'Isael', 'João Bosco', 'Maurício', 'Renato', 'Weber']; // componentes do Grupo ABIM
   }
 
   ngOnInit() {
