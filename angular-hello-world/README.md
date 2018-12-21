@@ -176,7 +176,7 @@ export class UserItemComponent implements OnInit {
    <strong>Listagem 3- user-item.component.ts</strong> 
 </p>
 
-**c.** No VSC  edite o arquivo `hello-world.component.html` conforme Listagem 1
+**c.** No VSC  edite o arquivo `user-item.component.html` conforme Listagem 4
 
 ```html
 <p>
@@ -190,7 +190,7 @@ Estão gostando do Angular?```
    <strong>Listagem 4- Template hello-world.component.html</strong> 
 </p>
 
-**d.** No VSC  edite o arquivo `app.component.html` conforme Listagem 3
+**d.** No VSC  edite o arquivo `app.component.html` conforme Listagem 5
 
 
 ```html
@@ -203,7 +203,7 @@ Estão gostando do Angular?```
 </div>
 ```
 <p align="center">
-   <strong>Listagem5- Template app.component.html com o novo componente</strong> 
+   <strong>Listagem 5- Template app.component.html com o novo componente</strong> 
 </p>
 ```
 
