@@ -87,10 +87,16 @@ ng serve
 Compiled successfully.
 
 ```
-#### 3. Criando um primeiro componente
+#### 3. Alterando a aplicação gerada 
 
-Uma das vantagens do Angular, talvez a mais fantástica delas,  é a possibilidade de se criar novos componentes. Os navegadores, entretanto, só “entendem” um conjunto limitado de tags que já estejam disponíveis na linguagem HTML,  tais como, como `<form>` ,` <image>` etc. 
+Abra o VSC e edit o arquivo `app.component.html` para o código abaixo:
 
-E se quisermos criar novas tags tal como `<clima-tempo>` ou a tag `<login>` que mostre um painel de login? 
 
-Esta é, justamente, a ideia que está por trás dos componentes: "ensinar" novas tags ao navegador! 
+```html
+<div style="text-align:center">
+  <h1>
+    Olá Mundo! Seja bem-vindo ao {{ title }} Angular 6!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+
