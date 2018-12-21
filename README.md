@@ -13,7 +13,7 @@ Neste aplicativo simples, abordaremos a maioria dos aspectos essenciais do Angul
 - Interceptação de cliques do usuário para atuar sobre eles; e 
 - Disponibilizar nosso aplicativo em um servidor
 
-#### 1. Criando a aplicação ola-mundo 
+#### 1. Criando a aplicação primo 
 
 
 
@@ -78,8 +78,8 @@ Veja na Figura 2 o que foi criado pelo Angular CLI
 
 ``` java
 
-cd ola-mundo
-ngserve
+cd primo
+ng serve
 ** NG Live Development Server is running on http://localhost:4200. **
  //...
  // uma  porção de outras mensagens
