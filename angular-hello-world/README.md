@@ -9,7 +9,7 @@ Neste aplicativo simples, abordaremos a maioria dos aspectos essenciais do Angul
 - Interceptação de cliques do usuário para atuar sobre eles; e 
 - Disponibilizar nosso aplicativo em um servidor
 
-#### 1. Construção de componentes personalizados 
+#### 1. Construção do primeiro componente personalizado 
 
 ::: :mortar_board: Novo conceito :::
 
@@ -92,7 +92,42 @@ O segundo parâmetro informa qual o template em html que será utilizado. E o te
 
 Mais abaixo no arquivo `hello-world.component.ts`, temos uma declaração de que trata-se de uma classe que implementa a interface OnInit: `export class HelloWorldComponent implements OnInit`
 
+**3.** No VSC  edite o arquivo `hello-world.component.html` conforme Listagem 1
+
+```html
+<p>
+  o componente hello-world funciona!
+</p>
+```
+<p align="center">
+   <strong>Listagem 1- Template hello-world.component.html</strong> 
+</p>
+
+**4.** No VSC  edite o arquivo `app.component.html` conforme Listagem 2
 
 
+```html
+<div style="text-align:left">
+  <h1>
+    Seja bem-vindo ao {{ title }}! 
+    <app-hello-world></app-hello-world>
+   </h1>
+</div>
+<p align="center">
+   <strong>Listagem 2- Template app.component.html</strong> 
+</p>
+```
 
+**5.** Executando a aplicação  
 
+No prompt de comandos, na pasta Angular/angular-hello-world,  digite:
+```
+ng serve 
+```
+ 
+No navegador digite o endereço
+
+```
+http://localhost:4200
+```
+#### 2. Construção do segundo componente personalizado 
