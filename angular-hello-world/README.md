@@ -58,7 +58,7 @@ O arquivo `hello-world.component.spec.ts` é o teste unitário para esse compone
 
 O arquivo `hello-world.component.ts` é o código TypeScript que está por trás do nosso componente.
 
-```javascript {.line-numbers}
+```javascript 
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -74,16 +74,23 @@ export class HelloWorldComponent implements OnInit {
   }
 
 }
-
-
 ```
-```javascript {.line-numbers}
-function add(x, y) {
-  return x + y
-}
+::: :pushpin: Importante :::
+
+> Observe a anotação
+```javascript
+@Component({
+  selector: 'app-hello-world',
+  templateUrl: './hello-world.component.html',
+  styleUrls: ['./hello-world.component.css']
+})
 ```
 
+O primeiro parâmetro `selector: 'app-hello-world'` informa qual a tag que está associada a este componente. Isso significa que o componente deverá ser usado como `<app-hello-world></app-heloo-world>`
 
+O segundo parâmetro informa qual o template em html que será utilizado. E o terceiro o estilo (arquivo css) associado.
+
+Mais abaixo no arquivo `hello-world.component.ts`, temos uma declaração de que trata-se de uma classe que implementa a interface OnInit: `export class HelloWorldComponent implements OnInit`
 
 
 
