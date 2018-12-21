@@ -77,7 +77,11 @@ export class HelloWorldComponent implements OnInit {
 
 
 ```
-
+```javascript {.line-numbers}
+function add(x, y) {
+  return x + y
+}
+```
 
 
 
