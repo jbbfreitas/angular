@@ -106,7 +106,7 @@ No browser digite:
 
 #### 4. Executando testes unitários usando o Karma
 
-Com o VSC e edit o arquivo `app.component.html` para o código abaixo:
+Com o VSC e edit o arquivo `app.component.spec.ts` para o código abaixo:
 
 ```TypeScript
 import { TestBed, async } from '@angular/core/testing';
