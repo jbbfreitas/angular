@@ -1,6 +1,6 @@
 # Angular Hello World 
 
-###  Construindo uma primeira aplicação web usando o Angular
+##  Construindo uma primeira aplicação web usando o Angular
 
 Neste aplicativo simples, abordaremos a maioria dos aspectos essenciais do Angular, incluindo:
 - Construção de componentes personalizados;
@@ -9,7 +9,7 @@ Neste aplicativo simples, abordaremos a maioria dos aspectos essenciais do Angul
 - Interceptação de cliques do usuário para atuar sobre eles; e 
 - Disponibilizar nosso aplicativo em um servidor
 
-#### 1. Construção do primeiro componente personalizado 
+### 1. Construção do primeiro componente personalizado 
 
 ::: :mortar_board: Novo conceito :::
 
@@ -24,7 +24,7 @@ Então vamos mostrar como se cria um novo componente Angular.
 ::: :walking: Passo a passo :::
 
 
-**1.** Na pasta `Angular`, digite o seguinte comando no prompt: 
+**a.** Na pasta `Angular`, digite o seguinte comando no prompt: 
 
 ```
 ng new angular-hello-world
@@ -38,7 +38,8 @@ Esse nosso primeiro componente não fará muitra coisa, irá apenas exibir uma m
 
 A maneira mais simples de criar componentes Angular é usar a própria ferramenta fornecida com o Angular CLI.
 
-Digite:
+**b.** Para criar o componente, digite o seguinte comando no prompt: 
+
 ```
 ng generate component app-hello-world
 ```
@@ -92,7 +93,7 @@ O segundo parâmetro informa qual o template em html que será utilizado. E o te
 
 Mais abaixo no arquivo `hello-world.component.ts`, temos uma declaração de que trata-se de uma classe que implementa a interface OnInit: `export class HelloWorldComponent implements OnInit`
 
-**3.** No VSC  edite o arquivo `hello-world.component.html` conforme Listagem 1
+**c.** No VSC  edite o arquivo `hello-world.component.html` conforme Listagem 1
 
 ```html
 <p>
@@ -103,7 +104,7 @@ Mais abaixo no arquivo `hello-world.component.ts`, temos uma declaração de que
    <strong>Listagem 1- Template hello-world.component.html</strong> 
 </p>
 
-**4.** No VSC  edite o arquivo `app.component.html` conforme Listagem 2
+**d.** No VSC  edite o arquivo `app.component.html` conforme Listagem 2
 
 
 ```html
@@ -118,7 +119,7 @@ Mais abaixo no arquivo `hello-world.component.ts`, temos uma declaração de que
 </p>
 ```
 
-**5.** Executando a aplicação  
+**e.** Executando a aplicação  
 
 No prompt de comandos, na pasta Angular/angular-hello-world,  digite:
 ```
@@ -130,4 +131,20 @@ No navegador digite o endereço
 ```
 http://localhost:4200
 ```
-#### 2. Construção do segundo componente personalizado 
+### 2. Construção do segundo componente personalizado 
+
+Agora vamos construir um componente um pouco mais útil. O nosso componente será capaz de utilizar nomes de pessoas que estão em uma lista e apresentá-los em uma página html.
+
+::: :walking: Passo a passo :::
+
+
+**a.** Para criar o novo componente, digite o seguinte comando no prompt: 
+
+```
+ng generate component user-item
+```
+O Angular CLI irá criar uma pasta denominada `user-item` contendo 4 arquivos:
+- user-item.component.css
+- user-item.component.html
+- user-item.component.spec.ts
+- user-item.component.ts
