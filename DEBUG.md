@@ -81,4 +81,4 @@
 
 ::: :pushpin: Importante :::
 
-> Para o Debug funcionar é preciso que todas as janelas do Chrome estejam inicialmente fehcadas!
+> Para o Debug funcionar é preciso que todas as janelas do Chrome estejam inicialmente fechadas!

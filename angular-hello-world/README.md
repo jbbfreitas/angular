@@ -148,3 +148,53 @@ O Angular CLI irá criar uma pasta denominada `user-item` contendo 4 arquivos:
 - user-item.component.html
 - user-item.component.spec.ts
 - user-item.component.ts
+
+**b.** No VSC  edite o arquivo `user-item.component.ts` com o código TypeScript a ser executado no nosso componente.
+
+```javascript 
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-user-item',
+  templateUrl: './user-item.component.html',
+  styleUrls: ['./user-item.component.css']
+})
+export class UserItemComponent implements OnInit {
+  names: string[];
+  constructor() {
+    this.names = ['Antônio', 'Isael', 'João Bosco', 'Mauricio', 'Renato', 'Weber']; // nome dos componentes do Grupo ABIM
+  }
+
+  ngOnInit() {
+  }
+
+}
+
+```
+**c.** No VSC  edite o arquivo `app.component.html` conforme Listagem 3
+
+
+```html
+<div style="text-align:left">
+  <h1>
+    Seja bem-vindo ao {{ title }}! 
+    <app-hello-world></app-hello-world>
+    <app-user-item></app-user-item>
+ </h1>
+</div>
+<p align="center">
+   <strong>Listagem 3- Template app.component.html com o novo componente</strong> 
+</p>
+```
+
+**d.** Executando a aplicação  
+
+No prompt de comandos, na pasta Angular/angular-hello-world,  digite:
+```
+ng serve 
+```
+ 
+No navegador digite o endereço
+
+```
+http://localhost:4200
