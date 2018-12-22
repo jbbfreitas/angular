@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "empresa-modelo"
+		},
+		{
+			"path": "/Users/joaoboscodebarrosfreitas/dev/source/jhipster/docflowpro_n/src/main/webapp"
 		}
 	],
 	"settings": {}
