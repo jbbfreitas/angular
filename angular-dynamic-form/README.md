@@ -1,27 +1,90 @@
 # DynamicForm
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+Este projeto foi criado baseando-se no [Trabalho de Bahurudeen](https://medium.com/@mail.bahurudeen/create-a-dynamic-form-with-configurable-fields-and-validations-using-angular-6-994db56834da)
 
-## Development server
+##  Criando a aplicação DynamicForm 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+::: :walking: Passo a passo :::
 
-## Code scaffolding
+**1.** Crie um novo projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+ng new dynamic-form
+```
 
-## Build
+**2.** Vá para a pasta recém-criada
+```
+cd dynamic-form
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**3.** Adicione a biblioteca Angular Material
 
-## Running unit tests
+```
+ng add @angular/material @angular/cdk
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**4.** Instale `@angular/material-moment-adapter` e `moment`. Eles são dependencias para `Material Datepicker`.
+```
+npm install --save @angular/material-moment-adapter moment
+```
 
-## Running end-to-end tests
+**5.** Crie um `custom module` com o nome de  `material`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+ng generate module material --flat
+```
 
-## Further help
+**6.**Crie um diretório `components` dentro do diretório `app`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+mkdir src/app/components
+```
+**7.**Gere cada um dos tipos de componentes.
+
+```
+ng generate component components/input --inline-style=true --inline-template=true --spec=false --module app
+```
+
+```
+ng generate component components/button --inline-style=true --inline-template=true --spec=false --module app
+```
+
+```
+ng generate component components/select --inline-style=true --inline-template=true --spec=false --module app
+```
+
+```
+ng generate component components/date --inline-style=true --inline-template=true --spec=false --module app
+```
+
+```
+ng generate component components/radiobutton --inline-style=true --inline-template=true --spec=false --module app
+```
+
+```
+ng generate component components/checkbox --inline-style=true --inline-template=true --spec=false --module app
+```
+
+**8.**Crie um diretório `dynamic-field` dentro do diretório `components`.
+
+```
+mkdir src/app/components/dynamic-field
+```
+
+**9.**Crie a diretiva `dynamic-field` dentro do diretório `app/components/dynamic-field`.
+
+```
+ng generate directive components/dynamic-field/dynamic-field --spec=false --module app
+```
+
+**10.**Crie um diretório `dynamic-form` dentro do diretório `components`.
+
+```
+mkdir src/app/components/dynamic-form
+```
+
+**11.**Crie um componente `dynamic-form` dentro do diretório `app/components/dynamic-form`.
+
+```
+ng generate component components/dynamic-form --inline-style=true --inline-template=true --spec=false --module app
+```
