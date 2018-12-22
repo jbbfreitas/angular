@@ -34,12 +34,12 @@ npm install --save @angular/material-moment-adapter moment
 ng generate module material --flat
 ```
 
-**6.**Crie um diretório `components` dentro do diretório `app`.
+**6.** Crie um diretório `components` dentro do diretório `app`.
 
 ```
 mkdir src/app/components
 ```
-**7.**Gere cada um dos tipos de componentes.
+**7.** Gere cada um dos tipos de componentes.
 
 ```
 ng generate component components/input --inline-style=true --inline-template=true --spec=false --module app
@@ -65,25 +65,25 @@ ng generate component components/radiobutton --inline-style=true --inline-templa
 ng generate component components/checkbox --inline-style=true --inline-template=true --spec=false --module app
 ```
 
-**8.**Crie um diretório `dynamic-field` dentro do diretório `components`.
+**8.** Crie um diretório `dynamic-field` dentro do diretório `components`.
 
 ```
 mkdir src/app/components/dynamic-field
 ```
 
-**9.**Crie a diretiva `dynamic-field` dentro do diretório `app/components/dynamic-field`.
+**9.** Crie a diretiva `dynamic-field` dentro do diretório `app/components/dynamic-field`.
 
 ```
 ng generate directive components/dynamic-field/dynamic-field --spec=false --module app
 ```
 
-**10.**Crie um diretório `dynamic-form` dentro do diretório `components`.
+**10.** Crie um diretório `dynamic-form` dentro do diretório `components`.
 
 ```
 mkdir src/app/components/dynamic-form
 ```
 
-**11.**Crie um componente `dynamic-form` dentro do diretório `app/components/dynamic-form`.
+**11.** Crie um componente `dynamic-form` dentro do diretório `app/components/dynamic-form`.
 
 ```
 ng generate component components/dynamic-form --inline-style=true --inline-template=true --spec=false --module app
