@@ -32,3 +32,7 @@ export class AppModule { }
 </p>
 
 3. A partir de `app.component.html` os demais componentes são invocados.
+
+::: :pushpin: Importante :::
+
+> O parâmetro `providers` será utilizado sempre for necessário injetar um componente em outro (serviços por exemplo).
