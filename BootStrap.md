@@ -35,4 +35,4 @@ export class AppModule { }
 
 ::: :pushpin: Importante :::
 
-> O parâmetro `providers` será utilizado sempre for necessário injetar um componente em outro (serviços por exemplo).
+> O parâmetro `providers` será utilizado para declarar componentes que serão injetados em outros componentes (serviços por exemplo).
