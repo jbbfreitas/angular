@@ -122,19 +122,19 @@ Mais abaixo no arquivo `hello-world.component.ts`, temos uma declaração de que
 
 **e.** Executando a aplicação  
 
-No prompt de comandos, na pasta Angular/angular-hello-world,  digite:
+No prompt de comandos, na pasta `Angular/angular-hello-world`,  digite:
 ```
 ng serve 
 ```
  
-No navegador digite o endereço
+> Este comando inicia o Node.js e disponibiliza a aplicação na porta 4200 por padrão. No navegador digite o seguinte endereço:
 
 ```
 http://localhost:4200
 ```
 ### 2. Construção do segundo componente personalizado 
 
-Agora vamos construir um componente um pouco mais útil. O nosso componente será capaz de utilizar nomes de pessoas que estão em uma lista e apresentá-los em uma página html.
+Agora vamos construir um componente um pouco mais útil. Esse nosso componente será capaz de utilizar nomes de pessoas que estejam em uma lista e apresentá-los em uma página html.
 
 ::: :walking: Passo a passo :::
 
@@ -172,9 +172,19 @@ export class UserItemComponent implements OnInit {
 }
 
 ```
+
 <p align="center">
    <strong>Listagem 3- user-item.component.ts</strong> 
 </p>
+
+::: :pushpin: Importante :::
+
+> Observe a instrução:
+```typescript
+  nomes: string[];
+```
+
+
 
 **c.** No VSC  edite o arquivo `user-item.component.html` conforme Listagem 4
 
