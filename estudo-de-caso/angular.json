@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "empresa-modelo": {
+    "estudo-de-caso": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/empresa-modelo",
+            "outputPath": "dist/estudo-de-caso",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "empresa-modelo:build"
+            "browserTarget": "estudo-de-caso:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "empresa-modelo:build:production"
+              "browserTarget": "estudo-de-caso:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "empresa-modelo:build"
+            "browserTarget": "estudo-de-caso:build"
           }
         },
         "test": {
@@ -102,7 +102,7 @@
         }
       }
     },
-    "empresa-modelo-e2e": {
+    "estudo-de-caso-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "empresa-modelo:serve"
+            "devServerTarget": "estudo-de-caso:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "empresa-modelo:serve:production"
+              "devServerTarget": "estudo-de-caso:serve:production"
             }
           }
         },
@@ -131,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "empresa-modelo"
+  "defaultProject": "estudo-de-caso"
 }
