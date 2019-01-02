@@ -248,6 +248,8 @@ No navegador digite o endereço
 
 ```
 http://localhost:4200
+```
+
 
 <p align="center">
   <img src="imagens/AplicacaoRodando.png" alt="Imagem da aplicação sendo executada">
