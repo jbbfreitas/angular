@@ -181,9 +181,13 @@ export class UserItemComponent implements OnInit {
 
 > Observe a instrução:
 ```typescript
-  nomes: string[];
+ 1 nomes: string[];
+ 2 constructor() {
+ 3   this.nomes = ['Antônio', 'Isael', 'João Bosco', 'Mauricio', 'Renato', 'Weber']; // nome dos componentes do Grupo ABIM
+  }
 ```
 
+Em (1) a variável `nomes` está sendo declarada como sendo um `array de strings`. Em (2) o método construtor da classe `UserItemComponente`. E em (3), a atribuição de valores para a variável `nomes` .
 
 
 **c.** No VSC  edite o arquivo `user-item.component.html` conforme Listagem 4
@@ -200,6 +204,21 @@ Estão gostando do Angular?```
    <strong>Listagem 4- Template hello-world.component.html</strong> 
 </p>
 
+::: :pushpin: Importante :::
+
+> Observe a instrução:
+
+```html
+<p>
+  Olá turma:
+1  <li *ngFor = "let nome of nomes">{{ nome }}</li>
+</p>
+<hr>
+Estão gostando do Angular?```
+```
+> A linha mais importante é a (1). Essa linha faz um loop usando o `*ngFor` atribuindo à  variável `nome` os valores do `array` `nomes` em cada uma das interações. Em seguida a variável `nome` é exibida usando-se a instrução `{{nome}}`.
+
+ 
 **d.** No VSC  edite o arquivo `app.component.html` conforme Listagem 5
 
 
