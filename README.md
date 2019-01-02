@@ -62,4 +62,4 @@ Você vai observar que o Angular usa muitos arquivos que devem estar organizados
 
 ***a.*** Crie uma nova  pasta denominada `Grupo de Estudo\Angular` 
 
-Pronto! O ambiente está preparado para começar com o Angular. Siga agora para o  [Primeiro projeto](angular-hello-world/README.md)
+Pronto! O ambiente está preparado para começar com o Angular. Siga agora para o  [Primeiro projeto](angular-hello-world/README.md) denominado `Angular Hello World`.

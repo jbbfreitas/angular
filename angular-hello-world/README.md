@@ -51,7 +51,7 @@ O Angular CLI irá criar uma pasta denominada `hello-world` contendo 4 arquivos:
 
 Vamos explicar detalhadamente cada um dos arquivos:
 
-O arquivo `hello-world.component.css` define um estilo que pode ser utilizado para renderizar o componente. Para saber mais sobre css consulte [aqui](https://www.w3schools.com/css/css_intro.asp).
+O arquivo `hello-world.component.css` define um estilo que pode ser utilizado para renderizar o componente. Para saber mais sobre css  [clique aqui](https://www.w3schools.com/css/css_intro.asp).
 
 O arquivo `hello-world.component.html` define na linguagem html, o que será exibido para o usuário.
 
