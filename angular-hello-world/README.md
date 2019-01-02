@@ -187,7 +187,7 @@ export class UserItemComponent implements OnInit {
   }
 ```
 
-Em (1) a variável `nomes` está sendo declarada como sendo um `array de strings`. Em (2) o método construtor da classe `UserItemComponente`. E em (3), a atribuição de valores para a variável `nomes` .
+Em (1) a variável `nomes` está sendo declarada como sendo um `array de strings`. Em (2) temos a declaração do método construtor da classe `UserItemComponente`. E, em (3), a atribuição de valores para a variável `nomes` .
 
 
 **c.** No VSC  edite o arquivo `user-item.component.html` conforme Listagem 4
@@ -248,3 +248,10 @@ No navegador digite o endereço
 
 ```
 http://localhost:4200
+
+<p align="center">
+  <img src="imagens/AplicacaoRodando.png" alt="Imagem da aplicação sendo executada">
+</p>
+<p align="center">
+   <strong>Figura 1- Imagem da aplicação sendo executada</strong> 
+</p>
