@@ -3,11 +3,11 @@
 ##  Construindo uma primeira aplicação web usando o Angular
 
 Neste aplicativo simples, abordaremos a maioria dos aspectos essenciais do Angular, incluindo:
-- Construção de componentes personalizados;
-- Formulários com entrada de dados do usuário;
-- Renderização de listas de objetos em views;
-- Interceptação de cliques do usuário para atuar sobre eles; e 
-- Disponibilizar nosso aplicativo em um servidor
+- A construção de componentes personalizados;
+- A criação de formulários com entrada de dados do usuário;
+- A demonstração de renderização de listas de objetos em views;
+- Como interceptar os cliques do usuário para tratamento de eventos; e 
+- A disponibilização do aplicativo em um servidor.
 
 ### 1. Construção do primeiro componente personalizado 
 
