@@ -31,7 +31,7 @@ Você poderá instalar o Node, através desta página https://nodejs.org/en/down
 
 No momento da escrita deste material a última versão estável era: 10.14.1 (incluindo o npm 6.4.1)
 
-**b**. Instale o TypeScript usando o seguinte no seu prompt:
+**b**. Instale o TypeScript usando o seguinte comando no seu prompt:
 
 ```
 npm install -g typescript
@@ -39,7 +39,7 @@ npm install -g typescript
 
 A linguagem TypeScript foi criada pela Microsoft, e tem sido uma escolha comum entre os desenvolvedores ASP.NET. Não se trata de uma linguagem completamente nova, na verdade o Typscript é um superconjunto do JavaScript. Sugiro a leitura deste artigo interessantíssimo sobre a evolução do JavaScript https://www.excella.com/insights/typescript-vs-es6-vs-es2015 , vale a pena!
 
-O uso da linguagem typescript para usar o Angular não é obrigatório. O Angular tem uma API do ES5, mas o Angular é escrito em TypeScript e geralmente é o que todos estão usando. Vamos usá-la  porque é uma ótima linguagem e facilita o trabalho com o Angular. 
+O uso da linguagem typescript para usar o Angular não é obrigatório. O Angular tem uma API do ES5 (usando o JavaScript). Ocorre, entretanto, que  o próprio Angular é escrito em TypeScript e geralmente é o que todos estão usando. Vamos usá-la  porque é uma ótima linguagem e facilita o trabalho com o Angular. 
 Fique livre para ler um pouco mais sobre usar o Angular com o Java Script (ES5), veja esse blog https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html que explica como é possível usar o Angular com o JavaScript ES5.
 
 **c**. Instale o Angular CLI
