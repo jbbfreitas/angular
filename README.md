@@ -56,8 +56,16 @@ Você vai observar que o Angular usa muitos arquivos que devem estar organizados
 
 #### 4. Verifique a versão do Angular que foi instalada, digitanto `ng --version`
 
+#### 5. Instale o Visual Studio Code 
 
-#### 5. Criação da pasta para os projetos `Angular` 
+O Visual Studio Code ou simplesmente VSC é um IDE gratuito da microsoft leve mas poderoso que pode ser executado em seu desktop e está disponível para os seguintes SOs: Windows, macOS e Linux. Ele já vem com suporte para  JavaScript, TypeScript e Node.js e possui um rico ecossitemsa de extensões para outras linguagens tais coomo (C++, C#, Java, Python, PHP e Go). Se desejar, assista a estes [vídeos introdutórios](https://code.visualstudio.com/docs/getstarted/introvideos) .
+
+
+
+Em seguida faça o [download do VSC](https://code.visualstudio.com/download) para o seu sistema operacional.
+
+
+#### 6. Criação da pasta para os projetos `Angular` 
 
 
 ***a.*** Crie uma nova  pasta denominada `Grupo de Estudo\Angular` 
