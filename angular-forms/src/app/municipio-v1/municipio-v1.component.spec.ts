@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MunicipioComponent } from './municipio.component';
+import { MunicipioV1Component } from './municipio-v1.component';
 
-describe('MunicipioComponent', () => {
-  let component: MunicipioComponent;
-  let fixture: ComponentFixture<MunicipioComponent>;
+describe('MunicipioV1Component', () => {
+  let component: MunicipioV1Component;
+  let fixture: ComponentFixture<MunicipioV1Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MunicipioComponent ]
+      declarations: [ MunicipioV1Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MunicipioComponent);
+    fixture = TestBed.createComponent(MunicipioV1Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

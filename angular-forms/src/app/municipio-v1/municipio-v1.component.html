@@ -1,0 +1,15 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Cadastro de Município</h2>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="ui form">
+    <div class="field">
+      <label for="nomeMunicipio">Nome do Município:</label>
+      <input type="text" id="nomeMunicipio" placeholder="Nome do Municipio" name="nomeMunicipio" ngModel>
+    </div>
+    <div class="field">
+      <label for="uf">Estado:</label>
+      <input type="text" id="uf" placeholder="UF" name="uf" ngModel>
+    </div>
+    <hr>
+    <button type="submit" class="ui button">Gravar</button>
+  </form>
+</div>
