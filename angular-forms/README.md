@@ -1,6 +1,20 @@
-# Angular Forms V1
+# Angular Forms
 
 ##  Construindo uma aplicação contendo um formulário Angular
+
+Os formulários são, provavelmente, um dos aspecto mais importasntes do seu aplicativo da web, isso porque é por meio de formulários que recebemos a maior parte da nossa entrada  de dados .
+
+Aparentemente os formulários são simples: você cria uma tag de entrada, o usuário a preenche e clica em enviar. Simples não é?
+Acontece que os formulários podem ser muito complexos. Veja o porquê:
+
+- Os formulários destinam-se a modificar dados, tanto na página quanto no servidor;
+- As alterações geralmente precisam ser refletidas em outros lugares da página;
+- É preciso validar os valores de entrada para impedir inconsistências;
+- Alguns campos dependem de outros e, com isso, a lógica pode ficar complexa;
+- Queremos ser capazes de testar nossos formulários.
+
+Felizmente o Angular possui diversos recursos que facilitam a criação de formulários extremamente complexos. E é isso que vamos praticar nessa seção.
+
 
 ::: :walking: Passo a passo :::  
 
