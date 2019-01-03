@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "estudo-de-caso": {
+    "angular-forms": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/estudo-de-caso",
+            "outputPath": "dist/angular-forms",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,8 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-               "node_modules/font-awesome/css/font-awesome.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -58,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "estudo-de-caso:build"
+            "browserTarget": "angular-forms:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "estudo-de-caso:build:production"
+              "browserTarget": "angular-forms:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "estudo-de-caso:build"
+            "browserTarget": "angular-forms:build"
           }
         },
         "test": {
@@ -103,7 +102,7 @@
         }
       }
     },
-    "estudo-de-caso-e2e": {
+    "angular-forms-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "estudo-de-caso:serve"
+            "devServerTarget": "angular-forms:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "estudo-de-caso:serve:production"
+              "devServerTarget": "angular-forms:serve:production"
             }
           }
         },
@@ -132,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "estudo-de-caso"
+  "defaultProject": "angular-forms"
 }

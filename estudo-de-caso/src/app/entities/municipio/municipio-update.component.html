@@ -1,3 +1,60 @@
-<p>
-  municipio-update works!
-</p>
+<div class="row justify-content-center">
+  <div class="col-8">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+          <h2 id="municipio-heading" >Criar ou editar um Municipio</h2>
+          <div>
+              <div class="form-group" [hidden]="!municipio.id">
+                  <label for="id" >ID</label>
+                  <input type="text" class="form-control" id="id" name="id"
+                      [(ngModel)]="municipio.id" readonly />
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label" jhiTranslate="estudoDeCasoApp.municipio.nomeMunicipio" for="field_nomeMunicipio">Nome Municipio</label>
+                  <input type="text" class="form-control" name="nomeMunicipio" id="field_nomeMunicipio"
+                      [(ngModel)]="municipio.nomeMunicipio" />
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_uf">Uf</label>
+                  <select class="form-control" name="uf" [(ngModel)]="municipio.uf" id="field_uf" >
+                      <option value="MT"></option>
+                      <option value="SP"></option>
+                      <option value="RJ"></option>
+                      <option value="RS"></option>
+                      <option value="RS"></option>
+                      <option value="RS"></option>
+                      <option value="RS"></option>
+                      <option value="RS"></option>
+                      <option value="RS"></option>
+                      <option value="RN"></option>
+                      <option value="GO"></option>
+                      <option value="SC"></option>
+                      <option value="MA"></option>
+                      <option value="TO"></option>
+                      <option value="AM"></option>
+                      <option value="PA"></option>
+                      <option value="PR"></option>
+                      <option value="MG"></option>
+                      <option value="BA"></option>
+                      <option value="SE"></option>
+                      <option value="AL"></option>
+                      <option value="RR"></option>
+                      <option value="RO"></option>
+                      <option value="AC"></option>
+                      <option value="PI"></option>
+                      <option value="PE"></option>
+                      <option value="CE"></option>
+                  </select>
+              </div>
+
+          </div>
+          <div>
+              <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                  <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Cancelar</span>
+              </button>
+              <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                  <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span >Salvar</span>
+              </button>
+          </div>
+      </form>
+  </div>
+</div>
