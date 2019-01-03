@@ -27,7 +27,7 @@ Após criada a aplicação faça:
  cd angular-forms
  ng generate component municipioV1 
 ```
-> `ng` é um prefixo que significa `Angular` e está invocando o Anglular-Cli para gerar um novo componente.
+> `ng` é um prefixo que significa `Angular` e está invocando o Anglular-Cli para gerar um novo componente. Vide Figura 1.
 
 <p align="center">
   <img src="imagens/ComponentesGeradosV1.png" alt="Arquivos após gerar municipioV1">
@@ -35,4 +35,11 @@ Após criada a aplicação faça:
 <p align="center">
    <strong>Figura 1- Arquivos após gerar municipioV1</strong> 
 </p>
+
+2. Alterar o módulo da aplicação
+
+### O que são os NgModule
+
+> Uma aplicação Angular é por natureza dividida em módulos. Os módulos são descritos (o que contém, o que importam e o que exportam) através da utilização do NgModule 
+Um NgModule é, na verdade uma anotação `decorator` que marca uma determinada classe com a anotação @NgModule. @NgModule  descreve como compilar um componente e como injetar um determinado serviço em tempo de execução. Ele identifica os componentes, diretivas e filtros do próprio módulo, tornando alguns deles públicos, por meio da propriedade `exports`, para que componentes externos possam usá-los. O @NgModule também pode adicionar provedores de serviços para que o Angular faça a injeção de dependência nos componentes apropriados.
 
