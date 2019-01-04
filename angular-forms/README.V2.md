@@ -154,7 +154,7 @@ vincula os valores de um `FormControl` a uma variável declarada no componente e
 #### Desafio 1 :innocent:
  
  
-- Exexcute o comando `ng serve` e digite a url no seu browser  `localhost:4200`. 
+- Exexcute o comando `ng serve` e digite no seu browser a url  `localhost:4200`. 
 Abra a console do navegador, usando as instruções abaixo e clique no botão `Salvar`.
 
 
