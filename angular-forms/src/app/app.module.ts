@@ -5,6 +5,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MunicipioV1Component } from './municipio-v1/municipio-v1.component';
 import { MunicipioV2Component } from './municipio-v2/municipio-v2.component';
 import { MunicipioV3Component } from './municipio-v3/municipio-v3.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 
 
@@ -17,7 +19,7 @@ import { MunicipioV3Component } from './municipio-v3/municipio-v3.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
