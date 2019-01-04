@@ -436,13 +436,13 @@ Altere o arquivo  `app.component.html` , substitua as instruções da página po
 
 - Exexcute o comando `ng serve` e digite no seu browser a url  `localhost:4200`. 
 
-> Por que a aplicação ainda continua com a aparência antiga?
+> A sua aplicação tem a aparência da Figura 2? Por que?
 
 <p align="center">
   <img src="imagens/AparenciaAntiga.png" alt="Antiga aparência da aplicação">
 </p>
 <p align="center">
-   <strong>Figura 1- Antiga aparência da aplicação</strong> 
+   <strong>Figura 2- Antiga aparência da aplicação</strong> 
 </p>
 
 
