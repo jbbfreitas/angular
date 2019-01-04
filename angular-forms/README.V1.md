@@ -189,6 +189,7 @@ export class MunicipioV1Component implements OnInit {
 - Exexcute o comando `ng serve` e digite a url no seu browser  `localhost:4200`. 
 Abra a console do navegador, usando as instruções abaixo e clique no botão `Gravar`.
 
+
 ##a.## Usando o Chrome ou Firefox
 
 > Pressione Ctrl + Shift + J (Windows/Linux) ou Cmd + Opt + J (Mac).
@@ -197,8 +198,8 @@ Se o DevTools já estiver aberto, pressione o botão Console.
 
 #### Desafio 2 :innocent:
  
-```
-- Explique o porquê da exibição da página `municipio-v1.component.html` quando se executa a instrução do desafio 1
-```
+
+- Explique o porquê da exibição da página `municipio-v1.component.html` quando se executa a instrução do desafio 1.
+
 
 A primeira versão do formulário está pronta. Siga agora para a [implementação da versão V2](README.V2.md) .
