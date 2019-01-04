@@ -186,8 +186,14 @@ export class MunicipioV1Component implements OnInit {
 #### Desafio 1 :innocent:
  
 ```
-- Exexcute o comando `ng serve` e abra o browser em `localhost:4200`
+- Exexcute o comando `ng serve` e digite a url no seu browser  `localhost:4200`. Abra a console do navegar, usando as instruções abaixo e clique no botão `Gravar`.
 ```
+##a.## Usando o Chrome ou Firefox
+
+> Pressione Ctrl + Shift + J (Windows/Linux) ou Cmd + Opt + J (Mac).
+Se o DevTools já estiver aberto, pressione o botão Console.
+
+
 #### Desafio 2 :innocent:
  
 ```

@@ -1,6 +1,6 @@
 # Angular Forms V2
 
-Os dois objetos fundamentais em formulários no Angular são `FormControl` e `FormGroup`.
+Nesta versão vamos implementar validadores nos campos do formulário.
 
 ## FormControl
 Um `FormControl` representa um único campo de entrada - é a menor unidade de um formulário no Angular. FormControls encapsulam o valor do campo e declara que ele é válido, sujo (alterado) ou se contém
