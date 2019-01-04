@@ -123,9 +123,8 @@ Substitua as instruções da página por `<app-municipio-v3></app-municipio-v3>`
 #### Desafio 1 :innocent: 
  
 - Exexcute o comando `ng serve` e digite no seu browser a url  `localhost:4200`. 
-Abra a console do navegador, usando as instruções abaixo e clique no botão `Salvar`.
 
-> Em que condições o botão `Salvar` fica desabilitado? Que instrução provoca esse tipo de comportamento?
+> Em que condições o botão `Salvar` fica desabilitado? Que instrução provoca esse  comportamento?
 
 
 Pronto, o nosso formulário agora possui um `select` com valores pré-definidos. Na última versão [V4](README.V4.md)  melhorar a aparência do nosso foumulários bem como fazer a ligação com uma classe de dados Municipio..
