@@ -106,15 +106,15 @@ export class MunicipioV2Component implements OnInit {
 
 > Quando se importa `FormsModule` a tag `form` é automaticamente ligada às diretivas `ngForm`, `ngModel`, `ngSubmit` dentre outas. 
 
-###ngForm
+### ngForm
 > A diretiva `ngForm` cria uma instância de `FormGroup` e a vincula a um formulário para rastrear os valores dos `FormControls` agrupados. Permite acesso também ao status de validação, tal como `dirty`, `valid`, `touched`, `value` etc.
 
 ### #editForm="ngForm"
 > Opcionalmente a diretiva pode ser associada a uma variável de modelo local usando a chave `#` (ex: #myForm = "ngForm"). Apesar de opcional essa técnica é bastante útil pois muitas propriedades da instância do `FormGroup`  podem ser usadas como propriedades de interação do usuário, como `editForm.controls.uf?.dirty`.
 
-###(ngSubmit)="save()"
+### (ngSubmit)="save()"
 > `(ngSubmit)` é uma diretiva de `output`, ou seja, faz  a ligação **saindo** da `view` para um método do `controller`. No caso em estudo está vinculando o  `submit` do formulário ao método `save()` do componente. 
 
-###novalidate
+### novalidate
 
 
