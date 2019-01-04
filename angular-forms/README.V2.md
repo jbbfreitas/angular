@@ -118,8 +118,8 @@ export class MunicipioV2Component implements OnInit {
 #### novalidate
 
 ```html
-<input class="form-control" type="text" id="nomeMunicipio" placeholder="Nome do Municipio" name="nomeMunicipio"
-          [(ngModel)]="nomeMunicipio" required minlength="3" maxlength="50">
+<input class="form-control" type="text" id="nomeMunicipio" placeholder="Nome do Municipio" 
+        name="nomeMunicipio" [(ngModel)]="nomeMunicipio" required minlength="3" maxlength="50">
 ```
 #### [(ngModel)]="nomeMunicipio"
 
