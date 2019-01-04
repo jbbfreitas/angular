@@ -117,4 +117,29 @@ export class MunicipioV2Component implements OnInit {
 
 #### novalidate
 
+```html
+<input class="form-control" type="text" id="nomeMunicipio" placeholder="Nome do Municipio" name="nomeMunicipio"
+          [(ngModel)]="nomeMunicipio" required minlength="3" maxlength="50">
+```
+#### [(ngModel)]="nomeMunicipio"
 
+#### required 
+
+#### minlength="3" 
+
+#### maxlength="50"
+
+```html
+<div [hidden]="!(editForm.controls.uf?.dirty && editForm.controls.uf?.invalid)">
+          <small class="form-text text-danger" [hidden]="!editForm.controls.uf?.errors?.required">
+            UF é obrigatória.
+          </small>
+</div>
+```
+#### [hidden]
+
+#### dirty
+
+#### invalid
+
+#### required
