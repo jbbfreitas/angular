@@ -129,6 +129,9 @@ Substitua as instruções da página por `<app-municipio-v3></app-municipio-v3>`
    <strong>Listagem 1- Camada View da aplicação: arquivo municipio-v3.component.html</strong> 
 </p>
 
+4. Alterar o arquivo  `municipio-v3.component.css`, conforme Listagem 2.
+
+
 ```css
 * { box-sizing:border-box; }
 
@@ -405,12 +408,42 @@ body {
     background-image: linear-gradient(to top, #26759e, #133d5b);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#26759e, endColorstr=#133d5b);
 }
 ```
+<p align="center">
+   <strong>Listagem 2- CSS da aplicação em municipio-v3.component.css</strong> 
+</p>
+
 
 #### Desafio 1 :innocent: 
  
 - Exexcute o comando `ng serve` e digite no seu browser a url  `localhost:4200`. 
 
+> A sua aplicação tem a aparência da Figura 1?
+
+
+<p align="center">
+  <img src="imagens/AparenciaNova.png" alt="Nova aparência da aplicação">
+</p>
+<p align="center">
+   <strong>Figura 1- Nova aparência da aplicação</strong> 
+</p>
+
 > Em que condições o botão `Salvar` fica desabilitado? Que instrução provoca esse  comportamento?
+
+
+#### Desafio 2 :innocent: 
+
+Altere o arquivo  `app.component.html` , substitua as instruções da página por `<app-municipio-v2></app-municipio-v2>`. 
+
+- Exexcute o comando `ng serve` e digite no seu browser a url  `localhost:4200`. 
+
+> Por que a aplicação ainda continua com a aparência antiga?
+
+<p align="center">
+  <img src="imagens/AparenciaAntiga.png" alt="Antiga aparência da aplicação">
+</p>
+<p align="center">
+   <strong>Figura 1- Antiga aparência da aplicação</strong> 
+</p>
 
 
 Pronto, o nosso formulário agora possui um `select` com valores pré-definidos. Na última versão [V4](README.V4.md)  melhorar a aparência do nosso foumulários bem como fazer a ligação com uma classe de dados Municipio..
