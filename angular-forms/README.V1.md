@@ -193,3 +193,5 @@ export class MunicipioV1Component implements OnInit {
 ```
 - Explique o porquê da exibição da página `municipio-v1.component.html` quando se executa a instrução do desafio 1
 ```
+
+A primeira versão do formulário está pronta. Siga agora para a [implementação da versão V2](angular-form/README.V2.md) .
