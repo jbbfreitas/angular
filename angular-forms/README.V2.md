@@ -1,4 +1,4 @@
-# Angular Forms V1
+# Angular Forms V2
 
 Os dois objetos fundamentais em formulários no Angular são `FormControl` e `FormGroup`.
 
