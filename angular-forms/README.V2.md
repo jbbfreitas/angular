@@ -26,7 +26,7 @@ Nesta versão vamos implementar validadores nos campos do formulário.
 2. Alterar o componente  `MunicipioV2Component`, conforme Listagem 1.
 
 ```typescript
-iimport { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-municipio-v2',
@@ -54,7 +54,14 @@ export class MunicipioV2Component implements OnInit {
    <strong>Listagem 1- Componente MunicipioV2Component</strong> 
 </p>
 
-2. Alterar o arquivo  `municipio-v2.component.html`, conforme Listagem 2.
+2. Alterar o arquivo  `app.component.html`.
+
+O `NgModule` também define qual é o componente `bootstrap`, ou seja, qual o componente que inicia todo o processo. No exemplo acima o `bootstrap` é o `ApComponent` que está módulo `app`. Isso significa que a primeira página a ser carregada é a `app.component.html`.
+
+Substitua as instruções da página por `<app-municipio-v2></app-municipio-v2>`. 
+
+
+3. Alterar o arquivo  `municipio-v2.component.html`, conforme Listagem 2.
 
 ```html
 <div class="row justify-content-center">
