@@ -92,3 +92,6 @@ export class MunicipioV2Component implements OnInit {
 </div>
 
 ```
+<p align="center">
+   <strong>Listagem 2- Camada View da aplicação: arquivo municipio-v2.component.html</strong> 
+</p>
