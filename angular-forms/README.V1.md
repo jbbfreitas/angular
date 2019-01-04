@@ -190,7 +190,7 @@ export class MunicipioV1Component implements OnInit {
 Abra a console do navegador, usando as instruções abaixo e clique no botão `Gravar`.
 
 
-##a.## Usando o Chrome ou Firefox
+**a** Usando o Chrome ou Firefox
 
 > Pressione Ctrl + Shift + J (Windows/Linux) ou Cmd + Opt + J (Mac).
 Se o DevTools já estiver aberto, pressione o botão Console.
