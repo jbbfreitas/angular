@@ -123,16 +123,17 @@ export class MunicipioV2Component implements OnInit {
 ```
 #### [(ngModel)]="nomeMunicipio"
 > `[(ngModel)]` é uma diretiva bidirecional (os sinais `([])` é que dão essa característica à diretiva), ou seja, funciona tanto para `output` como para `input`. Essa diretiva
-vincula os valores de um `FormControl` a uma variável declarada no componente e vice-versa. No caso em tela a instrução `[(ngModel)]="nomeMunicipio"` está vinculando o valor do campo à uma vairável declarada em `municipio-v2.component.ts` de nome `nomeMunicipio`. Da mesma forma, se for alterado programaticamente o valor da variável `nomeMunicipio`, essa alteração será refletida no valor da tag `input` e será exibido no formulário.
+vincula os valores de um `FormControl` a uma variável declarada no componente e vice-versa. No caso em tela a instrução `[(ngModel)]="nomeMunicipio"` está vinculando o valor do campo à uma vairável declarada em `municipio-v2.component.ts` de nome `nomeMunicipio`. Da mesma forma, se for alterado programaticamente o valor da variável `nomeMunicipio`, essa alteração será refletida no valor da tag `input` e será exibida no formulário.
 
 #### required 
-> O atributo `required`  informa que o prenchimento do campo é obrigatório. Essa é a nossa primeira regra de validação do formulário. O não preenchimento do campo colocará o `FormControl` em um estado `dirty` ou `invalid`, coforme será visto mais adiante.
+> O atributo `required`  informa que o prenchimento do campo é obrigatório. Essa é a nossa primeira regra de validação do formulário. O não preenchimento do campo colocará o `FormControl` em um estado de erro `required`, conforme será visto mais adiante.
 
 #### minlength="3" 
-> O atributo `minlength="3"`  informa que o prenchimento do campo deve ter pelo menos 3 caracteres. Essa é a nossa segunda regra de validação do formulário. O não atendimento dessa regra colocará o `FormControl` em um estado `invalid` , coforme será visto mais adiante.
+> O atributo `minlength="3"`  informa que o prenchimento do campo deve ter pelo menos 3 caracteres. Essa é a nossa segunda regra de validação do formulário. O não atendimento dessa regra colocará o `FormControl`  em um estado `dirty` ou `invalid`, conforme será visto mais adiante.
 
 #### maxlength="50"
-> O atributo `maxlength="50"`  informa que o prenchimento do campo deve ter no máximo 50 caracteres. Essa é a nossa terceira regra de validação do formulário. O não atendimento dessa regra colocará o `FormControl` em um estado `invalid`, coforme será visto mais adiante.
+> O atributo `maxlength="50"`  informa que o prenchimento do campo deve ter no máximo 50 caracteres. Essa é a nossa terceira regra de validação do formulário. O não atendimento dessa regra colocará o `FormControl` em um estado  em um estado `dirty` ou `invalid`, conforme será visto mais adiante.
+
 
 ```html
 <div [hidden]="!(editForm.controls.uf?.dirty && editForm.controls.uf?.invalid)">
@@ -143,9 +144,10 @@ vincula os valores de um `FormControl` a uma variável declarada no componente e
 ```
 #### [hidden]
 > A diretiva `[hidden]` é somente de `input` e como o próprio nome já diz, irá ocultar o conteúdo de toda a tag onde ela foi declarada. No trecho de código acima  se o estado do campo `uf` for `dirty` ou `invalid` toda a tag `<div><\div>` ficará oculta e se o estado do campo `uf` for de erro por ser `required` a tag `<small></small>` também ficará oculta. Quando qualquer uma das duas estiver oculta, a mensagem `UF é obrigatória` não será exibida.
- 
-#### dirty
 
-#### invalid
+#### dirty e invalid
+> Esses dois estados tem caracteristicas similares: ambos são atribuidos a um `FormControl` sempre que uma regra de validação for violada. Entretanto, a diferença entre ambos está no fato de que `dirty` é associado a um estado de um `FormControl` quando este já foi preenchido pelo menos uma vez naquela seção, enquanto que `invalid` não leva em conta se o controle já foi ou não preenchido naquela seção.
 
 #### required
+> `required` é associado a um estado de um `FormControl` quando um determinado controle for de preenchimento obrigatório e encontra-se não preenchido.
+
