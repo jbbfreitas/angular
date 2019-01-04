@@ -19,7 +19,7 @@ import { MaterialModule } from './material.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MaterialModule
+    FormsModule, ReactiveFormsModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
