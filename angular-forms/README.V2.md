@@ -151,3 +151,29 @@ vincula os valores de um `FormControl` a uma variável declarada no componente e
 #### required
 > `required` é associado a um estado de um `FormControl` quando um determinado controle for de preenchimento obrigatório e encontra-se não preenchido.
 
+#### Desafio 1 :innocent:
+ 
+ 
+- Exexcute o comando `ng serve` e digite a url no seu browser  `localhost:4200`. 
+Abra a console do navegador, usando as instruções abaixo e clique no botão `Salvar`.
+
+
+**a** Usando o Chrome ou Firefox
+
+> Pressione Ctrl + Shift + J (Windows/Linux) ou Cmd + Opt + J (Mac).
+Se o DevTools já estiver aberto, pressione o botão Console.
+
+
+#### Desafio 2 :innocent:
+ 
+```typescript
+save(): void {
+    console.log ('O nome do municipio é', this.nomeMunicipio); //<<< usando this.
+    console.log ('O estado é', this.uf); //<<< usando this.
+  }
+```
+
+- Observando o trecho de código acima, explique:  o que siginifica `this`? Qual a diferença dessa instrução para a da versão V1?
+
+
+Pronto, o nosso formulário agora possui regras de validação. Na versão [V3](README.V3.md) iremos mostrar o uso de componentes do tipo `select` em formulários.
