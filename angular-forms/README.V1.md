@@ -189,12 +189,35 @@ export class MunicipioV1Component implements OnInit {
 - Exexcute o comando `ng serve` e digite  no seu browser  a url `localhost:4200`. 
 Abra a console do navegador, usando as instruções abaixo e clique no botão `Gravar`.
 
-
 **a** Usando o Chrome ou Firefox
 
 > Pressione Ctrl + Shift + J (Windows/Linux) ou Cmd + Opt + J (Mac).
 Se o DevTools já estiver aberto, pressione o botão Console.
 
+::: :pushpin: Importante :::
+> Para alterar a porta e o host padrão, há duas alternativas:
+
+- `ng serve --host 0.0.0.0 --port 5000`
+
+ou
+
+- Alterar o arquivo `angular.json`
+```json
+"projects": {
+    "project-name": {
+        ...
+        "architect": {
+            "serve": {
+                "options": {
+                  "host": "0.0.0.0",
+                  "port": 5000
+                }
+            }
+        }
+        ...
+    }
+}
+```
 
 #### Desafio 2 :innocent:
  
