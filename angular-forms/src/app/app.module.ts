@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MunicipioV1Component } from './municipio-v1/municipio-v1.component';
@@ -8,9 +9,13 @@ import { MunicipioV3Component } from './municipio-v3/municipio-v3.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MunicipioV4Component } from './municipio-v4/municipio-v4.component';
 import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
+import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
+import {HttpClientModule} from '@angular/common/http';
+import { MunicipioV5Service } from './municipio-v5/municipio-v5.service';
+import {municipioRoute} from './municipio-v5/municipio-v5.route';
+import { RouterModule } from '@angular/router';
 
-
-
+const ENTITY_STATES = [...municipioRoute];
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +23,17 @@ import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
     MunicipioV2Component,
     MunicipioV3Component,
     MunicipioV4Component,
-    MunicipioV5Component
+    MunicipioV5Component,
+    MunicipioListComponent
+
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule, BrowserAnimationsModule
+    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule,
+    RouterModule.forChild(ENTITY_STATES)
   ],
-  providers: [],
+  providers: [MunicipioV5Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
