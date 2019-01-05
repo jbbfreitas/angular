@@ -10,7 +10,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./municipio-v5.component.css']
 })
 export class MunicipioV5Component implements OnInit {
-  // municipio: IMunicipio = new Municipio();
  municipio: IMunicipio ;
 
   constructor(private router: Router, private municipioService: MunicipioV5Service,
