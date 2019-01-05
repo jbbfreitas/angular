@@ -206,7 +206,8 @@ export class Municipio implements IMunicipio {
 - Exexcute o comando `ng serve` e digite no seu browser a url  `localhost:4200`. 
 Abra a console do navegador, usando as instruções abaixo e clique no botão `Salvar`.
 
-> Em que condições o botão `Salvar` fica desabilitado? Que instrução provoca esse tipo de comportamento?
+> Foi instanciada a classe Município em formato JSON?
 
 
-Pronto, o nosso formulário agora possui um `select` com valores pré-definidos. Na última versão [V4](README.V4.md)  melhorar a aparência do nosso foumulários bem como fazer a ligação com uma classe de dados Municipio..
+Pronto, nesta  versão vamos fizemos a ligação com uma classe de dados `Municipio`
+criando a classe Municipio para quando o formulário for submetido, seja criada uma instância dessa classe no formato JSON. Na próxima versão [V5](README.V5.md)  vamos criar uma classe de serviços.

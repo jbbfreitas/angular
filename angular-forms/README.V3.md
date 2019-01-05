@@ -446,4 +446,6 @@ Altere o arquivo  `app.component.html` , substitua as instruções da página po
 </p>
 
 
-Pronto, o nosso formulário agora possui um `select` com valores pré-definidos. Na última versão [V4](README.V4.md)  melhorar a aparência do nosso foumulários bem como fazer a ligação com uma classe de dados Municipio..
+Pronto, o nosso formulário agora possui um `select` com valores pré-definidos. 
+Nesta versão  implementamons um `select` em Angular e criamo uma nova aparência ao nosso aplicativo dando um "banho de CSS".
+Na  versão [V4](README.V4.md) o nosso foumulários fará a ligação com uma classe de dados Municipio..
