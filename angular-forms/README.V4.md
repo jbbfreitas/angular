@@ -1,6 +1,7 @@
-# Angular Forms V3
+# Angular Forms V4
 
-Nesta versão vamos mostrar como utilizar `select` em Angular.
+Na  versão (V4) vamos fazer a ligação com uma classe de dados `Municipio`.
+O objetivo desta versão é a criação de uma classe Municipio para quando o formulário for submetido, seja criada uma instância dessa classe no formato JSON.
 
 ### Criando uma aplicação com um segundo formulário
 
@@ -11,71 +12,131 @@ Nesta versão vamos mostrar como utilizar `select` em Angular.
 
 ```java
  cd angular-forms
- ng generate component municipioV3 
+ ng generate component municipioV4 
 ```
 
 
-2. Alterar o componente  `MunicipioV3Component`, conforme Listagem 1.
+2. Alterar o componente  `MunicipioV4Component`, conforme Listagem 1.
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
+import { IMunicipio, Municipio, Estado } from '../shared/model/municipio.model'; //<<< alterado aqui
 
 @Component({
-  selector: 'app-municipio-v3',
-  templateUrl: './municipio-v3.component.html',
-  styleUrls: ['./municipio-v3.component.css']
+  selector: 'app-municipio-v4',
+  templateUrl: './municipio-v4.component.html',
+  styleUrls: ['./municipio-v4.component.css']
 })
-export class MunicipioV3Component implements OnInit {
-  nomeMunicipio: string ;
-  uf: string;
-  constructor() { }
+export class MunicipioV4Component implements OnInit {
+  municipio: IMunicipio = new Municipio(); //<<< alterado aqui
+
+   constructor() { }
 
   ngOnInit() {
   }
 
   save(): void {
-    console.log ('O nome do municipio é', this.nomeMunicipio);
-    console.log ('O estado é', this.uf);
+    console.log ('O municipio é', this.municipio); //<<< alterado aqui
 
   }
 }
 
+
+
 ````
 
 <p align="center">
-   <strong>Listagem 1- Componente MunicipioV3Component</strong> 
+   <strong>Listagem 1- Componente MunicipioV4Component</strong> 
 </p>
 
 2. Alterar o arquivo  `app.component.html`.
 
-O `NgModule` também define qual é o componente `bootstrap`, ou seja, qual o componente que inicia todo o processo. No exemplo acima o `bootstrap` é o `ApComponent` que está módulo `app`. Isso significa que a primeira página a ser carregada é a `app.component.html`.
 
-Substitua as instruções da página por `<app-municipio-v3></app-municipio-v3>`. 
 
-3. Alterar o arquivo  `municipio-v3.component.html`, conforme Listagem 1.
+Substitua as instruções da página por `<app-municipio-v4></app-municipio-v4>`. 
+
+3. Crie a estrutura de pastas da Figura 1 e em seguida o arquivo `municipio.model.ts` conforme Listagem 1.
+
+
+<p align="center">
+  <img src="imagens/EstruturaPastasModelo.png" alt="Estrutura de pastas para o modelo de dados">
+</p>
+
+<p align="center">
+   <strong>Figura 1- Estrutura de pastas para o modelo de dados</strong> 
+</p>
+
+
+```typescript 
+
+export const enum Estado {
+    MT = 'MT',
+    SP = 'SP',
+    RJ = 'RJ',
+    RS = 'RS',
+    RN = 'RN',
+    GO = 'GO',
+    SC = 'SC',
+    MA = 'MA',
+    TO = 'TO',
+    AM = 'AM',
+    PA = 'PA',
+    PR = 'PR',
+    MG = 'MG',
+    BA = 'BA',
+    SE = 'SE',
+    AL = 'AL',
+    RR = 'RR',
+    RO = 'RO',
+    AC = 'AC',
+    PI = 'PI',
+    PE = 'PE',
+    CE = 'CE'
+}
+
+export interface IMunicipio {
+    id?: number;
+    nomeMunicipio?: string;
+    uf?: Estado;
+}
+
+export class Municipio implements IMunicipio {
+    constructor(public id?: number, public nomeMunicipio?: string, public uf?: Estado) {}
+}
+
+```
+
+<p align="center">
+   <strong>Listagem 1- Modelo de dados : arquivo municipiomodel.ts</strong> 
+</p>
+
+4. Alterar o arquivo  `municipio-v4.component.html`, conforme Listagem 2.
 
 ```html
-<div class="row justify-content-center">
-  <h2 class="ui header">Cadastro de Município V3</h2>
-  <div class="col-8">
-    <form name="editForm" novalidate (ngSubmit)="save()" class="ui form" #editForm="ngForm">
-      <div class="form-group">
-        <label class="form-control-label" for="nomeMunicipio">Nome do Município:</label>
-        <input class="form-control" type="text" id="nomeMunicipio" placeholder="Nome do Municipio" name="nomeMunicipio"
-          [(ngModel)]="nomeMunicipio" required minlength="3" maxlength="50">
+<div class="container">
+
+    <h2>Formulário de Entrada de Dados<small>Municípios</small></h2>
+  
+  
+    <form name="editForm" novalidate (ngSubmit)="save()" #editForm="ngForm">
+      <div class="group">
+        <input type="text" id="nomeMunicipio" name="nomeMunicipio" [(ngModel)]="municipio.nomeMunicipio" required minlength="3"
+          maxlength="50">
         <div [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
           <small class="form-text text-danger" [hidden]="!editForm.controls.nomeMunicipio?.errors?.required">
-            O nome do município é obrigatório.
+            Campo obrigatório.
           </small>
           <small class="ui error message" [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
-            Nome do município deve ter entre 3 e 50 caracteres.
+            Deve ter entre 3 e 50 caracteres.
           </small>
-        </div>
+        </div> <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="nomeMunicipio">Nome do Município:</label>
       </div>
-      <div class="form-group">
-        <label class="form-control-label" for="uf">Estado:</label>
-        <select class="form-control" name="uf" [(ngModel)]="uf" id="field_uf" style="min-width:20%;" required>
-          <option [ngValue]="Selecione">Selecione</option>
+  
+      <div class="select">
+        <select class="select-text" name="uf" [(ngModel)]="municipio.uf" id="field_uf" required>
+          <option [ngValue]="selecione">Selecione</option>
           <option value="MT">MT</option>
           <option value="SP">SP</option>
           <option value="RJ">RJ</option>
@@ -104,19 +165,39 @@ Substitua as instruções da página por `<app-municipio-v3></app-municipio-v3>`
             Selecione uma UF obrigatoriamente.
           </small>
         </div>
+        <span class="select-highlight"></span>
+        <span class="select-bar"></span>
+        <label class="select-label" for="uf">Estado:</label>
       </div>
-      <div>
-        <button type="submit" [disabled]="editForm.form.invalid " class="ui button">Gravar</button>
+      <div class="buttons">
+        <div [hidden]="editForm.form.invalid ">
+          <button type="submit" class="button">Gravar</button>
+        </div>
+        <div [hidden]="!editForm.form.invalid ">
+          <button disabled class="button disabled">Gravar</button>
+        </div>
       </div>
     </form>
   </div>
-</div>
-
-
+  
 ```
 <p align="center">
-   <strong>Listagem 1- Camada View da aplicação: arquivo municipio-v3.component.html</strong> 
+   <strong>Listagem 2- Camada View da aplicação: arquivo municipio-v4.component.html</strong> 
 </p>
+
+::: :pushpin: Importante :::
+
+> Observe as alterações no arquivo :
+
+```html
+  <input type="text" id="nomeMunicipio" ... [(ngModel)]="municipio.nomeMunicipio" <<< Alterado aqui 
+```
+
+```html
+        <select class="select-text" ... [(ngModel)]="municipio.uf" <<< Alterado aqui
+```
+
+> Essas mudanças forma necessárias porque nesta versão o `[(ngModel)]` está sendo associado aos atributos (nomeMunicipio e uf) da instância da classe Municipio.
 
 
 

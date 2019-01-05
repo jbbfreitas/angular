@@ -24,8 +24,8 @@ Na versão V1 nós vamos contextuzar as várias maneiras de trabvalhar com formu
 
 Na versão V2 iremos mostrar como trabalhar com validações.
 
-Na versão V3 iremos mostrar o uso de  componentes do tipo select em formulários.
+Na versão V3 iremos mostrar o uso de  componentes do tipo select em formulários e dar uma nova aparência à nossa aplicação.
 
-Na última versão (V4) melhorar a aparência do nosso foumulários bem como fazer a ligação com uma classe de dados `Municipio`.
+Na  versão (V4) vamos fazer a ligação com uma classe de dados `Municipio`.
 
 Então vamos lá. Passe para a implementação [Municipio V1](README.V1.md) do nosso Estudo de Caso de Formulários.
