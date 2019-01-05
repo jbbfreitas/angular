@@ -60,7 +60,7 @@
           "options": {
             "browserTarget": "angular-forms:build",
             "host": "localhost",
-            "port": 5000
+            "port": 4200
           },
           "configurations": {
             "production": {
