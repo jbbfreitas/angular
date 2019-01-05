@@ -209,5 +209,5 @@ Abra a console do navegador, usando as instruções abaixo e clique no botão `S
 > Foi instanciada a classe Município em formato JSON?
 
 
-Pronto, nesta  versão vamos fizemos a ligação com uma classe de dados `Municipio`
-criando a classe Municipio para quando o formulário for submetido, seja criada uma instância dessa classe no formato JSON. Na próxima versão [V5](README.V5.md)  vamos criar uma classe de serviços.
+Pronto, nesta  versão fizemos a ligação com uma classe de dados `Municipio`
+para quando o formulário for submetido, fosse criada uma instância dessa classe no formato JSON. Na próxima versão [V5](README.V5.md)  vamos criar uma classe de serviços.
