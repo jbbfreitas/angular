@@ -54,7 +54,23 @@ O Angular CLI é um utilitário que permite aos usuários criar e gerenciar proj
 
 Você vai observar que o Angular usa muitos arquivos que devem estar organizados adequadamente em pastas. Por isso é sempre uma boa prática usar o Angular CLI, para que os seus projetos mantenham sempre os mesmos padrões.
 
-#### 4. Verifique a versão do Angular que foi instalada, digitanto `ng --version`
+> O angualar CLI cria os seguintes arquivos.
+
+- `Modules` - Módulos dividem o aplicativo em partes lógicas de código. Cada pedaço de código ou módulo é projetado para executar uma única tarefa. Todos os módulos são carregados por `main.ts`.
+
+- `Component` - O componente é usado para reunir os módulos.
+
+- `tsconfig.json` - A presença do arquivo `tsconfig.json` em um diretório indica que o diretório é a raiz de um projeto do `typescript`. Esse arquivo especifica os arquivos raiz e  instrui o compilador `typescript` sobre a o que incluir/excluir, diretórios de saída etc.
+
+- `package.json` - Ele contém todas as dependências definidas para o projeto angular. Se  nós não as instalamos, essas dependências são baixadas automaticamente.
+
+- `karma.conf.json` - Arquivo de configuração para testes unitários usando o karma.
+
+- O arquivo `.angular.json` terá todas as configurações do aplicativo, como informações sobre o diretório root e out. O arquivo html principal ou `main` junto com o arquivo `main.ts` . Todas as outras informações relacionadas ao ambiente estarão presentes aqui.
+
+#### 4. Verificação da  versão do Angular 
+
+> Verifique a versão do Angular que foi instalada, digitanto `ng --version`
 
 #### 5. Instale o Visual Studio Code 
 
