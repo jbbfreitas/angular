@@ -8,10 +8,7 @@ import { MunicipioV6Component } from './municipio-v6/municipio-v6.component';
 import { MunicipioListComponent } from './municipio-v6/municipio-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { MunicipioV6Service } from './municipio-v6/municipio-v6.service';
-import {municipioRoute} from './municipio-v6/municipio-v6.route';
-import { RouterModule } from '@angular/router';
 
-const ENTITY_STATES = [...municipioRoute];
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +19,6 @@ const ENTITY_STATES = [...municipioRoute];
   imports: [
     BrowserModule,
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule,
-    RouterModule.forChild(ENTITY_STATES)
   ],
   providers: [MunicipioV6Service],
   bootstrap: [AppComponent]

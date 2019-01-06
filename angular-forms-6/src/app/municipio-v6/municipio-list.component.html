@@ -7,9 +7,6 @@
         <th class="hidden">Id</th>
         <th>Nome</th>
         <th>UF</th>
-
-        <th>Editar</th>
-
         <th>Excluir</th>
       </tr>
     </thead>
@@ -18,7 +15,6 @@
         <td> {{municipio.id}}</td>
         <td>{{municipio.nomeMunicipio}}</td>
         <td>{{municipio.uf}}</td>
-        <td><button type="submit" [routerLink]="['/municipio', municipio.id, 'edit']" class="btnedit">Editar</button></td>
         <td><button class="btndel" (click)="deleteMunicipio(municipio)">Excluir</button></td>
       </tr>
     </tbody>

@@ -25,12 +25,5 @@ export class MunicipioV6Service {
   deleteMunicipio(municipio: IMunicipio): any {
       return this.http.delete(this.municipioUrl + '/' + municipio.id);
   }
-  updateMunicipio(municipio: IMunicipio): any {
-    return this.http.put<IMunicipio>(this.municipioUrl , municipio);
-  }
-  find(id: any): any {
-    return this.http.get<IMunicipio>(this.municipioUrl + '/' + id);
-}
-
 
 }
