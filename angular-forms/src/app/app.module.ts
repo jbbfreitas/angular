@@ -11,7 +11,7 @@ import { MunicipioV4Component } from './municipio-v4/municipio-v4.component';
 import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
 import { MunicipioV6Component } from './municipio-v6/municipio-v6.component';
 import { MunicipioV7Component } from './municipio-v7/municipio-v7.component';
-import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
+import { MunicipioListComponent } from './municipio-v7/municipio-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { MunicipioV5Service } from './municipio-v5/municipio-v5.service';
 import {municipioRoute} from './municipio-v5/municipio-v5.route';

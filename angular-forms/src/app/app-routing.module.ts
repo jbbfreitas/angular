@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
 import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
-import {municipioRoute} from './municipio-v5/municipio-v5.route';
+import {municipioRoute} from './municipio-v7/municipio-v7.route';
 /*
 const routes: Routes = [
   { path: 'municipios', component: MunicipioListComponent },
@@ -48,6 +48,4 @@ export class MunicipioResolve implements Resolve<IMunicipio> {
     ],
     exports: [RouterModule]
 })
-
-
 */
