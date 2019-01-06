@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Lista de Municipios</h2>
+
+  <table class="rtable">
+    <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Nome</th>
+        <th>UF</th>
+
+        <th>Editar</th>
+
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let municipio of municipios">
+        <td> {{municipio.id}}</td>
+        <td>{{municipio.nomeMunicipio}}</td>
+        <td>{{municipio.uf}}</td>
+        <td><button type="submit" [routerLink]="['/municipio', municipio.id, 'edit']" class="btnedit">Editar</button></td>
+        <td><button class="btndel" (click)="deleteMunicipio(municipio)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

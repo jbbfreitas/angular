@@ -9,6 +9,8 @@ import { MunicipioV3Component } from './municipio-v3/municipio-v3.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MunicipioV4Component } from './municipio-v4/municipio-v4.component';
 import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
+import { MunicipioV6Component } from './municipio-v6/municipio-v6.component';
+import { MunicipioV7Component } from './municipio-v7/municipio-v7.component';
 import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { MunicipioV5Service } from './municipio-v5/municipio-v5.service';
@@ -24,6 +26,8 @@ const ENTITY_STATES = [...municipioRoute];
     MunicipioV3Component,
     MunicipioV4Component,
     MunicipioV5Component,
+    MunicipioV6Component,
+    MunicipioV7Component,
     MunicipioListComponent
 
   ],
