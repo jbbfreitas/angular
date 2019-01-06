@@ -24,11 +24,5 @@ export class MunicipioListComponent implements OnInit {
       });
   }
 
-  deleteMunicipio(municipio: Municipio): void {
-    this.municipioService.deleteMunicipio(municipio)
-      .subscribe( data => {
-        this.municipios = this.municipios.filter(u => u !== municipio);
-      });
-  }
 
 }
