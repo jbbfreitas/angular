@@ -13,8 +13,8 @@ import { MunicipioV6Component } from './municipio-v6/municipio-v6.component';
 import { MunicipioV7Component } from './municipio-v7/municipio-v7.component';
 import { MunicipioListComponent } from './municipio-v7/municipio-list.component';
 import {HttpClientModule} from '@angular/common/http';
-import { MunicipioV5Service } from './municipio-v5/municipio-v5.service';
-import {municipioRoute} from './municipio-v5/municipio-v5.route';
+import { MunicipioV7Service } from './municipio-v7/municipio-v7.service';
+import {municipioRoute} from './municipio-v7/municipio-v7.route';
 import { RouterModule } from '@angular/router';
 
 const ENTITY_STATES = [...municipioRoute];
@@ -36,7 +36,7 @@ const ENTITY_STATES = [...municipioRoute];
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule,
     RouterModule.forChild(ENTITY_STATES)
   ],
-  providers: [MunicipioV5Service],
+  providers: [MunicipioV7Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

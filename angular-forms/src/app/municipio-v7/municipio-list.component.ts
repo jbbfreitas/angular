@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMunicipio, Municipio } from '../shared/model/municipio.model';
-import { MunicipioV5Service } from './municipio-v5.service';
+import { MunicipioV7Service } from './municipio-v7.service';
 
 @Component({
   selector: 'app-municipio-list',
   templateUrl: './municipio-list.component.html',
-  styleUrls: ['./municipio-v5.component.css']
+  styleUrls: ['./municipio-v7.component.css']
 })
 export class MunicipioListComponent implements OnInit {
   municipios: IMunicipio[];
 
-  constructor(private router: Router, private municipioService: MunicipioV5Service) {
+  constructor(private router: Router, private municipioService: MunicipioV7Service) {
 
   }
 
