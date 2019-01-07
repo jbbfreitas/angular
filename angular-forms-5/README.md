@@ -42,15 +42,7 @@ Iremos utilizar nesta versão uma espécie de menu. Esse menu terá apenas duas 
 
 Para habilitar minimamente o uso de `Routing` no Angular serão necessários 3 passos:
 
-2. List item two continued with an open block.
-+
---
-This paragraph is part of the preceding list item.
-
-a. This list is nested and does not require explicit item
-continuation
-
-... Alterar o arquivo `app.module.ts` para importar a biblioteca `AppRoutingModule`. Veja na Listagem 1 como deve ficar esse arquivo:
+  - 2.1 Alterar o arquivo `app.module.ts` para importar a biblioteca `AppRoutingModule`. Veja na Listagem 1 como deve ficar esse arquivo:
 
     ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -85,8 +77,7 @@ export class AppModule { }
     <strong>Listagem 1- Arquivo app.module.ts</strong> 
     </p>
 
-
-  2.2- Criar o arquivo `app-routing.module.ts` para fazer a vinculação entre os componentes e o respectiva  URL. Em aplicações reais deve-se criar um arquivo `routing` para cada caso de uso. 
+- 2.2- Criar o arquivo `app-routing.module.ts` para fazer a vinculação entre os componentes e o respectiva  URL. Em aplicações reais deve-se criar um arquivo `routing` para cada caso de uso. 
   
 
 
@@ -117,7 +108,7 @@ export class AppRoutingModule { }
 
 > Observe na Listagem 1 que primeiramente é feita a declaração de uma constante denominada aqui de `routes`. Essa constante é um `array` contendo os dois links que usaremos. Em (3) a diretiva `exports` publica  as duas rotas que, então, poderão ser utilizadas na nossa aplicação.
 
-2.3- Finalmente, será necessário configurar a `view` exibir o nosso `menu`. 
+- 2.3- Finalmente, será necessário configurar a `view` exibir o nosso `menu`. 
   
 
 ```html
@@ -132,7 +123,9 @@ export class AppRoutingModule { }
 </div>
 
 ```
-
+<p align="center">
+    <strong>Listagem 3- Arquivo app-component.html</strong> 
+</p>
 3. Criar um componente para listar os municipios cadastrados
 
  
