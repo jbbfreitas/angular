@@ -468,4 +468,4 @@ npm start
 Pronto, nesta  versão (V5) fizemos a ligação entre os dois lados: o cliente e o servidor.
 Utilizar a classe `HttpClient` do angular para as chamadas de métodos HTTP no servidor. Foi criada também uma classe de serviços para isolar a responsabilidade das camadas.
 
-Implementamos dois casos de uso: "Listar Municipios" e "Criar um novo município". Isso foi possível graças ao uso de `Routing`. Na próxima versão [V6](..\angular-form-6\README.md)  vamos criar um novo calso de uso: "Excluir Municipios".
+Implementamos dois casos de uso: "Listar Municipios" e "Criar um novo município". Isso foi possível graças ao uso de `Routing`. Na próxima versão [V6](..\angular-forms-6\README.md)  vamos criar um novo calso de uso: "Excluir Municipios".
