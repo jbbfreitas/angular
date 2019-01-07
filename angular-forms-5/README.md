@@ -1,6 +1,8 @@
 # Angular Forms V5
 
-Na  versão (V5) vamos fazer ....
+Na  versão (V5) vamos fazer a ligação entre os dois lados: o cliente e o servidor.
+Para isso vamos utilizar a classe `HttpClient` do angular que realizará chamadas de métodos HTTP no servidor. Essa classe `HttpClient` será utilizada em uma classe de serviços que será criada especialmente para permitir o isolamento de camadas (como fizemos no lado servidor).
+Além disso vamos implementar dois casos de uso: "Listar Municipios" e "Criar um novo município". Isso será possível com a criação de um `menu` para que o usuário possa selecionar um dos dois casos de uso de nosso aplicativo: 
 
 Para realizar este tutorial você deverá copiar a pasta `Grupo de Estudo\angular-forms-1-4` para `Grupo de Estudo\angular-forms-5`
 
@@ -463,5 +465,7 @@ A resposta é: isso é possível se ajustarmos o `proxy`. Isso mesmo, temos que 
 npm start
 ```
 
-Pronto, nesta  versão fizemos a ligação com uma classe de dados `Municipio`
-para quando o formulário for submetido, fosse criada uma instância dessa classe no formato JSON. Na próxima versão [V5](README.V5.md)  vamos criar uma classe de serviços.
+Pronto, nesta  versão (V5) fizemos a ligação entre os dois lados: o cliente e o servidor.
+Utilizar a classe `HttpClient` do angular para as chamadas de métodos HTTP no servidor. Foi criada também uma classe de serviços para isolar a responsabilidade das camadas.
+
+Implementamos dois casos de uso: "Listar Municipios" e "Criar um novo município". Isso foi possível graças ao uso de `Routing`. Na próxima versão [V6](..\angular-form-6\README.md)  vamos criar um novo calso de uso: "Excluir Municipios".
