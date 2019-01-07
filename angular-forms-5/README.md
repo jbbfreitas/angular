@@ -42,12 +42,12 @@ Iremos utilizar nesta versão uma espécie de menu. Esse menu terá apenas duas 
 
 Para habilitar minimamente o uso de `Routing` no Angular serão necessários 3 passos:
 
-.. 2.1 Alterar o arquivo `app.module.ts` para importar a biblioteca `AppRoutingModule`. Veja na Listagem 1 como deve ficar esse arquivo:
+... Alterar o arquivo `app.module.ts` para importar a biblioteca `AppRoutingModule`. Veja na Listagem 1 como deve ficar esse arquivo:
 
     ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module'; //<<< Incluido
+import { AppRouting Module } from './app-routing.module'; //<<< Incluido
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
