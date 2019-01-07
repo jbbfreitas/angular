@@ -3,28 +3,133 @@
 Na  versão (V5) vamos fazer ....
 
 
-1. @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+1. Habilitar o CORS
 
-2. Copiar app-routing.module.ts
+###  ::: :mortar_board: Novo conceito :::
 
-3. Alterar app.component.html
+Como o lado cliente de nossa aplicação Angular está sendo exeutada em um servidor (Node.js, no nosso caso) e o lador servidor está sendo executado em outro (TomCat), nós, teocricamente, deveríamos habilitar o CORS. 
 
-```typescript
-<div class="container-fluid">
-  <div class="col-md-offset-1">
-    <h1>
-      Welcome to !
-    </h1>
-  </div>
+Segundo o wikipedia, "Cross-origin resource sharing (CORS)(ou compartilhamento de recursos de origem cruzada) é uma especificação de uma tecnologia de navegadores que define meios para um servidor permitir que seus recursos sejam acessados por uma página web de um domínio diferente." 
 
-  <a routerLink="/api/municipios"> Listar Municipios</a>
-  <a style="margin-left:10px" routerLink="/add">Novo Municipio</a>
-  <br />
-  <router-outlet></router-outlet>
-</div>
+Eu disse "teoricamente" por que isso seria realmente imperativo se estivéssemos executando cliente e servidor em máquinas distintas. Porém, no caso em tela, ambos os lados (cliente e servidor) estão em `localhost`. Portanto não será  necessessária essa configuração. 
+
+Abaixo temos um exemplo que poderia ser utilizado.
+
+```java
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+```
+Há casos em que desejaremos que toda a aplicação esteja habilitada para CORS para um determinado servidor. Nesse caso não usaríamos a anotaçã `@CrossOrigin` mas sim uma configuração global na aplicação como no exemplo abaixo:
+
+```java
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/greeting-javaconfig").allowedOrigins("http://localhost:4200");
+            }
+        };
+    }
 ```
 
-4. ng g component municipio-v5/municipio-list --flat
+2. Configurar a aplicação para usar `routing`
+
+###  ::: :mortar_board: Novo conceito :::
+
+Iremos utilizar nesta versão uma espécie de menu. Esse menu terá apenas duas opções "Listar Municípios" e "Novo Município", entretanto, ao clicar em um destes itens de menu a aplicação deverá ser capaz de renderizar o componente correto, ou seja, carregar um recurso diferente usando uma URL diferente. Para que isso seja possível vamos utilizar um recurso do Angular denominado `"Routing"`.
+
+> `Routing` é um mecanismo de rotear, redicionar uma URL para outra usando JavaScript. Nas aplicações que usam JSF-Java Server Faces esse roteamento é feito no servidor, mas, no Angular, o roteamento é feito no próprio cliente.
+
+Para habilitar minimamente o uso de `Routing` no Angular serão necessários 3 passos:
+
+.. 2.1 Alterar o arquivo `app.module.ts` para importar a biblioteca `AppRoutingModule`. Veja na Listagem 1 como deve ficar esse arquivo:
+
+    ```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module'; //<<< Incluido
+import { AppComponent } from './app.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
+import {HttpClientModule} from '@angular/common/http';
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    MunicipioV5Component,
+    MunicipioListComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule, //<<< Incluído
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+   
+    ```
+
+    <p align="center">
+    <strong>Listagem 1- Arquivo app.module.ts</strong> 
+    </p>
+
+
+  2.2- Criar o arquivo `app-routing.module.ts` para fazer a vinculação entre os componentes e o respectiva  URL. Em aplicações reais deve-se criar um arquivo `routing` para cada caso de uso. 
+  
+
+
+::: :+1: Boa Prática :::
+
+**Como boa prática use um  arquivo `routing` para cada caso de uso. Por exemplo municipio-routing, empregado-routing etc**
+
+```typescript
+const routes: Routes = [ //<<< 1-Declara um constante
+  { path: 'municipios', component: MunicipioListComponent }, //<<< 2-Liga URL a um componente
+  { path: 'municipio/new', component: MunicipioV5Component }
+];
+
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule] //<<< 3-Publica o roteamente
+})
+export class AppRoutingModule { }
+```
+
+ <p align="center">
+    <strong>Listagem 2- Arquivo app-routing.module.ts</strong> 
+</p>
+
+
+::: :pushpin: Importante :::
+
+> Observe na Listagem 1 que primeiramente é feita a declaração de uma constante denominada aqui de `routes`. Essa constante é um `array` contendo os dois links que usaremos. Em (3) a diretiva `exports` publica  as duas rotas que, então, poderão ser utilizadas na nossa aplicação.
+
+2.3- Finalmente, será necessário configurar a `view` exibir o nosso `menu`. 
+  
+
+```html
+<<div class="container">
+    <h2>
+      Gerenciamento de Municípios
+    </h2>
+  <a routerLink="/municipios"> Listar Municipios</a> <!--Primeiro link -->
+  <a routerLink="/municipio/new" style="margin-left:10px" >Novo Municipio</a> <!--Segundo Link -->
+  <br />
+  <router-outlet></router-outlet> <!--Aqui serão renderizados os componentes -->
+</div>
+
+```
+
+3. Criar um componente para listar os municipios cadastrados
+
+ 
+
+ng g component municipio-v5/municipio-list --flat
 
 5. ng g service  municipio-v5/municipio-v5 --flat
 
