@@ -2,6 +2,7 @@
 
 Na  versão (V5) vamos fazer ....
 
+Para realizar este tutorial você deverá copiar a pasta `Grupo de Estudo\angular-forms-1-4` para `Grupo de Estudo\angular-forms-5`
 
 1. Habilitar o CORS
 
@@ -57,9 +58,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MunicipioV5Component,
-    MunicipioListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +75,7 @@ export class AppModule { }
   <strong>Listagem 1- Arquivo app.module.ts</strong> 
 </p>
 
-- 2.2- Criar o arquivo `app-routing.module.ts` para fazer a vinculação entre os componentes e o respectiva  URL. Em aplicações reais deve-se criar um arquivo `routing` para cada caso de uso. 
+- 2.2- Criar o arquivo `app-routing.module.ts` para fazer a vinculação entre os componentes e a respectiva  URL. Em aplicações reais deve-se criar um arquivo `routing` para cada caso de uso. 
   
 
 
@@ -104,9 +103,9 @@ export class AppRoutingModule { }
 
 ::: :pushpin: Importante :::
 
-> Observe na Listagem 1 que primeiramente é feita a declaração de uma constante denominada aqui de `routes`. Essa constante é um `array` contendo os dois links que usaremos. Em (3) a diretiva `exports` publica  as duas rotas que, então, poderão ser utilizadas na nossa aplicação.
+> Observe na Listagem 2 que primeiramente é feita a declaração de uma constante denominada aqui de `routes`. Essa constante é um `array` contendo os dois links que usaremos. Em (3) a diretiva `exports` publica  as duas rotas que, então, poderão ser utilizadas na nossa aplicação.
 
-- 2.3- Finalmente, será necessário configurar a `view` exibir o nosso `menu`. 
+- 2.3- Finalmente, será necessário configurar a `view` para exibir o nosso `menu`. 
   
 
 ```html
@@ -124,13 +123,116 @@ export class AppRoutingModule { }
 <p align="center">
     <strong>Listagem 3- Arquivo app-component.html</strong> 
 </p>
+
 3. Criar um componente para listar os municipios cadastrados
 
- 
+Na pasta `Grupo de Estudo\angular-forms-5` abra um prompt e digite:
 
+```
+ng generate component municipioV5
+```
+
+e em seguida:
+
+```
 ng g component municipio-v5/municipio-list --flat
+```
+4. Altere os arquivos `municipio-v5.component.ts` e  `municipio-list.component.ts` conforme Listagem 4 e Listagem 5 respectivamente.
 
-5. ng g service  municipio-v5/municipio-v5 --flat
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IMunicipio, Municipio, Estado } from '../shared/model/municipio.model';
+import { MunicipioV5Service } from './municipio-v5.service';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-municipio-v5',
+  templateUrl: './municipio-v5.component.html',
+  styleUrls: ['./municipio-v5.component.css']
+})
+export class MunicipioV5Component implements OnInit {
+ municipio: IMunicipio = new Municipio();
+
+  constructor(private router: Router, private municipioService: MunicipioV5Service) {
+  }
+
+  ngOnInit() {
+  }
+
+  save(): void {
+       this.municipioService.createMunicipio(this.municipio)
+      .subscribe( data => {
+        alert('Municipio criado com sucesso.');
+      });
+  }
+}
+
+```
+<p align="center">
+    <strong>Listagem 4- Arquivo municipio-v5.component.ts</strong> 
+</p>
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IMunicipio, Municipio } from '../shared/model/municipio.model';
+import { MunicipioV5Service } from './municipio-v5.service';
+
+@Component({
+  selector: 'app-municipio-list',
+  templateUrl: './municipio-list.component.html',
+  styleUrls: ['./municipio-v5.component.css']
+})
+export class MunicipioListComponent implements OnInit {
+  municipios: IMunicipio[];
+
+  constructor(private router: Router, private municipioService: MunicipioV5Service) {
+
+  }
+  ngOnInit() {
+    this.municipioService.getMunicipios()
+      .subscribe( data => {
+        this.municipios = data;
+        console.log(this.municipios);
+      });
+  }
+}
+
+```
+<p align="center">
+    <strong>Listagem 5- Arquivo municipio-v5.component.ts</strong> 
+</p>
+
+::: :pushpin: Importante :::
+
+> Observe o trecho de código abaixo extraído da Listagem 4
+
+```typescript
+...
+1 municipio: IMunicipio = new Municipio();
+
+2  constructor(private router: Router, private municipioService: MunicipioV5Service) {
+  }
+...
+3  save(): void {
+       this.municipioService.createMunicipio(this.municipio).subscribe( data => {
+        alert('Municipio criado com sucesso.');
+      });
+  }
+```
+> Em (1) a variável `municipio` é declarada e instanciada.
+> Em (2) está o método construtor da classe `MunicipioV5Component`. Em Angular, um declaração desse tipo equivale a declarar uma variável de instância e em seguida atribuir os valores das instâncias passados como parâmetro para essas vairáveis.
+> Em (3) o método `save()`utiliza `municipioService` para criar um município. É interessante notar que esse método utiliza `subscribe` que significa que esse método se inscreve para obter uma resposta assíncrona do servidor, atribuindo essa resposta à variável `data`. Os estudantes mais atentos perceberão que está sendo impplementado aqui o `pattern` `observer`.
+
+
+5. Criar um componente de serviços
+
+Na pasta `Grupo de Estudo\angular-forms-5` abra um prompt e digite:
+
+```
+ng g service  municipio-v5/municipio-v5 --flat
+```
 
 6. Crie MunicipioService
 

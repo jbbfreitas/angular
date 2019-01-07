@@ -13,7 +13,6 @@ export class MunicipioV5Component implements OnInit {
  municipio: IMunicipio = new Municipio();
 
   constructor(private router: Router, private municipioService: MunicipioV5Service) {
-
   }
 
   ngOnInit() {
