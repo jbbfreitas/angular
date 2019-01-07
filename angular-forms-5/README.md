@@ -48,27 +48,33 @@ Para habilitar minimamente o uso de `Routing` no Angular serão necessários 3 p
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRouting Module } from './app-routing.module'; //<<< Incluido
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
+import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
 import {HttpClientModule} from '@angular/common/http';
+import { MunicipioV5Service } from './municipio-v5/municipio-v5.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MunicipioV5Component,
+    MunicipioListComponent
+
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule, //<<< Incluído
-    HttpClientModule
+    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule
   ],
-  providers: [],
+  providers: [MunicipioV5Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
 ```
 
 <p align="center">
@@ -228,18 +234,19 @@ export class MunicipioListComponent implements OnInit {
 
 5. Criar um componente de serviços
 
-Na pasta `Grupo de Estudo\angular-forms-5` abra um prompt e digite:
+O Angular-CLI permite que sejam criados componentes de serviços. Para isso, na pasta `Grupo de Estudo\angular-forms-5` abra um prompt e digite:
 
 ```
 ng g service  municipio-v5/municipio-v5 --flat
 ```
 
-6. Crie MunicipioService
+6. Editar MunicipioService para o conteúdo da Listagem 6
 
 ```typescript
 import { Injectable } from '@angular/core';
 import { IMunicipio, Municipio } from '../shared/model/municipio.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -250,59 +257,101 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MunicipioV5Service {
-
   constructor(private http: HttpClient) {}
 
   private municipioUrl = '/api/municipios';
 
 
   createMunicipio(municipio: IMunicipio): any {
-    return this.http.post<IMunicipio>(this.municipioUrl , municipio);
+    return this.http.post<IMunicipio>(this.municipioUrl , municipio, httpOptions);
   }
   getMunicipios(): any {
-    return this.http.get<IMunicipio[]>(this.municipioUrl );
+    return this.http.get<IMunicipio[]>(this.municipioUrl, httpOptions);
   }
-  deleteMunicipio(municipio: IMunicipio): any {
-      return this.http.delete(this.municipioUrl + '/' + municipio.id);
+
+}
+
+```
+<p align="center">
+    <strong>Listagem 6- Arquivo municipio-v5.service.ts</strong> 
+</p>
+
+::: :pushpin: Importante :::
+
+> Observe o trecho de código abaixo extraído da Listagem 4
+
+```typescript
+...
+1 const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+
+2 @Injectable({
+  providedIn: 'root'
+})
+export class MunicipioV5Service {
+3  constructor(private http: HttpClient) {}
+
+4  private municipioUrl = '/api/municipios';
+
+
+5  createMunicipio(municipio: IMunicipio): any {
+    return this.http.post<IMunicipio>(this.municipioUrl , municipio, httpOptions);
   }
+6  getMunicipios(): any {
+    return this.http.get<IMunicipio[]>(this.municipioUrl, httpOptions);
+  }
+
 }
 ```
-7. html para listar municipios
-```html
-<div class="col-md-6">
-  <h2> Lista de Municipios</h2>
+> Em (1) é declarada uma constante `httpOptions`. Essa constante será utilizada como cabeçalho do protocolo HTTP, nos métodos (5) e (6), informando que o conteúdo é do tipo JSON.
 
-  <table class="table table-striped">
+> A anotação `@Injectable` usada em (2) indica que essa classe de serviços será  injetada pelo Angular sempre que usada em um método construtor, conforme exemplificado na Listagem5. O parâmetro `providedIn` informa em qual `module` esse serviço foi declarado como `provide`. Veja que no nosso caso ele foi declarado em `app.module.ts` (Listagem 1). 
+
+> O construtor dessa classe de serviços está declarado em (3). Esse construtor recebe, por meio de injeção de dependência, uma instância de `HttpClient`. Essa instância é associada à variável `http` para ser utilizada posteriormente em (5) e (6). Se tiver dúvidas quanto a esse comportamento do Angular, releia a explicação dada na Listagem 5. 
+
+> Os métodos HTTP recebem como um de seus parâmetros a URL onde será executado o respectivo método no lado servidor (no nosso caso os métodos REST escritos em Java). O estudante mais atento verá que a classe `MunicipioResource.java` tem a anotação `@RequestMapping("/api")` e que os seus métodos são anotados com `Mapping("/municipios")`. Isso significa que a URL para os métodos dessa classe é `http:localhost:8090/api/municipios`. É por essa razão que em (4) está sendo declarada uma variável `municipioUrl`.
+
+> Em (5) e (6) estão descritos os dois métodos dessa classe de serviço: `createMunicipio` e `getMunicipios`. Esses métodos usam, respectivamente, os métodos `HTTP.POST` e `HTTP.GET`. 
+
+
+
+7. Edite a view para exibir a  lista de municipios, conforme Listagem
+
+```html
+<div class="container">
+  <h2>Lista de Municipios</h2>
+
+  <table class="rtable">
     <thead>
       <tr>
         <th class="hidden">Id</th>
         <th>Nome</th>
         <th>UF</th>
-        <th>Ação</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let municipio of municipios">
-        <td class="hidden"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button class="btn btn-danger" (click)="deleteMunicipio(municipio)"> Deleta Munic</button></td>
+        <td> {{municipio.id}}</td>
+        <td>{{municipio.nomeMunicipio}}</td>
+        <td>{{municipio.uf}}</td>
       </tr>
     </tbody>
   </table>
 </div>
 
 ```
+<p align="center">
+    <strong>Listagem 7- Arquivo municipio-list.component.html</strong> 
+</p>
+
 8. html para criar municipios
 
 ```html
 <div class="container">
-
   <h2>Formulário de Entrada de Dados<small>Municípios</small></h2>
-
-
-  <form name="editForm" novalidate (ngSubmit)="createMunicipio()" #editForm="ngForm">
+  <form name="editForm" novalidate (ngSubmit)="save()" #editForm="ngForm">
     <div class="group">
       <input type="text" id="nomeMunicipio" name="nomeMunicipio" [(ngModel)]="municipio.nomeMunicipio" required minlength="3"
         maxlength="50">
@@ -358,89 +407,60 @@ export class MunicipioV5Service {
         <button type="submit" class="button">Gravar</button>
       </div>
       <div [hidden]="!editForm.form.invalid ">
-        <button disabled class="button disabled">Criar Municipio</button>
+        <button disabled class="button disabled">Gravar</button>
       </div>
     </div>
   </form>
 </div>
 
 ```
-9. Angular routing
+<p align="center">
+    <strong>Listagem 8- Arquivo municipio-V5.component.html</strong> 
+</p>
+
+
+9. Ajustar o Proxy do Node.js
+
+Você se lembra da linha de código abaixo?
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
-import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
-
-const routes: Routes = [
-  { path: 'municipios', component: MunicipioListComponent },
-  { path: 'novo', component: MunicipioV5Component }
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-
+private municipioUrl = '/api/municipios';
 ```
-10. Angular module
+Pois é, dissemos que ela seria usada como parte da URL de `http:localhost:8090/api/municipios` para executar métodos da classe `MunicipioResource.java`. Mas como é possível se o Node.js está sendo executado em `http://localhost:4200`?
+A resposta é: isso é possível se ajustarmos o `proxy`. Isso mesmo, temos que ajustar o proxy do Node.js para que ele faça a conversão de `http://localhost:4200` para `http:localhost:8090`. Isso é feito criando-se um arquivo `proxy.conf.json` na pasta `src` do projeto com o conteúdo da Listagem 9.
 
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MunicipioV1Component } from './municipio-v1/municipio-v1.component';
-import { MunicipioV2Component } from './municipio-v2/municipio-v2.component';
-import { MunicipioV3Component } from './municipio-v3/municipio-v3.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MunicipioV4Component } from './municipio-v4/municipio-v4.component';
-import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
-import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
-import {HttpClientModule} from '@angular/common/http';
-import { MunicipioV5Service } from './municipio-v5/municipio-v5.service';
-
-
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    MunicipioV1Component,
-    MunicipioV2Component,
-    MunicipioV3Component,
-    MunicipioV4Component,
-    MunicipioV5Component,
-    MunicipioListComponent,
-    HttpClientModule,
-
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule
-  ],
-  providers: [MunicipioV5Service],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
-10. Proxy
 ```json
 {
   "/api/*": {
-    "target": "http://localhost:8090/api",
-    "secure": false
+    "target": "http://localhost:8090",
+    "secure": false,
+    "pathRewrite": {"^/api" : "/api"},
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }
 ```
+<p align="center">
+    <strong>Listagem 9- Arquivo proxy.conf.json</strong> 
+</p>
 
-11. package.json
+
+10. Altere o arquivo `package.json` para reconhecer o proxy.
 
 ```json
-"start":"ng serve --proxy-config proxy.config.json",
+{
+  ...
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --proxy-config proxy.conf.json",
+  ...
+  },
+  ```
+
+11. Inicie o servidor usando a linha de comando abaixo:
+
+```
+npm start
 ```
 
 Pronto, nesta  versão fizemos a ligação com uma classe de dados `Municipio`
