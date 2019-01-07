@@ -44,7 +44,7 @@ Para habilitar minimamente o uso de `Routing` no Angular serão necessários 3 p
 
   - 2.1 Alterar o arquivo `app.module.ts` para importar a biblioteca `AppRoutingModule`. Veja na Listagem 1 como deve ficar esse arquivo:
 
-    ```typescript
+```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRouting Module } from './app-routing.module'; //<<< Incluido
@@ -70,12 +70,11 @@ import {HttpClientModule} from '@angular/common/http';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-   
-    ```
+```
 
-    <p align="center">
-    <strong>Listagem 1- Arquivo app.module.ts</strong> 
-    </p>
+<p align="center">
+  <strong>Listagem 1- Arquivo app.module.ts</strong> 
+</p>
 
 - 2.2- Criar o arquivo `app-routing.module.ts` para fazer a vinculação entre os componentes e o respectiva  URL. Em aplicações reais deve-se criar um arquivo `routing` para cada caso de uso. 
   
@@ -90,7 +89,6 @@ const routes: Routes = [ //<<< 1-Declara um constante
   { path: 'municipios', component: MunicipioListComponent }, //<<< 2-Liga URL a um componente
   { path: 'municipio/new', component: MunicipioV5Component }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
