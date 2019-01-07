@@ -42,6 +42,14 @@ Iremos utilizar nesta versão uma espécie de menu. Esse menu terá apenas duas 
 
 Para habilitar minimamente o uso de `Routing` no Angular serão necessários 3 passos:
 
+2. List item two continued with an open block.
++
+--
+This paragraph is part of the preceding list item.
+
+a. This list is nested and does not require explicit item
+continuation
+
 ... Alterar o arquivo `app.module.ts` para importar a biblioteca `AppRoutingModule`. Veja na Listagem 1 como deve ficar esse arquivo:
 
     ```typescript
