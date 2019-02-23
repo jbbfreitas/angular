@@ -20,7 +20,7 @@ Felizmente o Angular possui diversos recursos que facilitam a criação de formu
 
 Vamos constuir a nossa aplica em 4 etapas+1, eu explico melhor: a nossa aplicação será um estudo de caso que será construído em 4 versões mais 1 conjunto de testes de integração.
 
-Na versão V1 nós vamos contextuzar as várias maneiras de trabvalhar com formulários, e vamos construir um formulário bastante simples.
+Na versão V1 nós vamos contextuzar as várias maneiras de trabalhar com formulários, e vamos construir um formulário bastante simples.
 
 Na versão V2 iremos mostrar como trabalhar com validações.
 
