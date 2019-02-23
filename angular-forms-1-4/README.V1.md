@@ -3,7 +3,7 @@
 Os dois objetos fundamentais em formulários no Angular são `FormControl` e `FormGroup`.
 
 ## FormControl
-Um `FormControl` representa um único campo de entrada - é a menor unidade de um formulário no Angular. FormControls encapsulam o valor do campo e declara que ele é válido, sujo (alterado) ou se contém
+Um `FormControl` representa um único campo de entrada - é a menor unidade de um formulário no Angular. O componente FormControl encapsula o valor do campo e declara que ele é válido, sujo (alterado) ou se contém
 erros.
 
 
