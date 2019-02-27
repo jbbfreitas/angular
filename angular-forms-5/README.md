@@ -92,16 +92,25 @@ export class AppModule { }
 **Como boa prática use um  arquivo `routing` para cada caso de uso. Por exemplo municipio-routing, empregado-routing etc**
 
 ```typescript
-const routes: Routes = [ //<<< 1-Declara um constante
-  { path: 'municipios', component: MunicipioListComponent }, //<<< 2-Liga URL a um componente
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { MunicipioListComponent } from './municipio-v5/municipio-list.component';
+import { MunicipioV5Component } from './municipio-v5/municipio-v5.component';
+
+const routes: Routes = [
+  { path: 'municipios', component: MunicipioListComponent },
   { path: 'municipio/new', component: MunicipioV5Component }
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule] //<<< 3-Publica o roteamente
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+
 ```
 
  <p align="center">
@@ -209,7 +218,7 @@ export class MunicipioListComponent implements OnInit {
 
 ```
 <p align="center">
-    <strong>Listagem 5- Arquivo municipio-v5.component.ts</strong> 
+    <strong>Listagem 5- Arquivo municipio-list.component.ts</strong> 
 </p>
 
 ::: :pushpin: Importante :::

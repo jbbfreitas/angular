@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class MunicipioV2Component implements OnInit {
   nomeMunicipio: string ;
   uf: string;
-  constructor() { }
+  constructor() {
+    this.nomeMunicipio = 'Corumbá';
+  }
 
   ngOnInit() {
   }

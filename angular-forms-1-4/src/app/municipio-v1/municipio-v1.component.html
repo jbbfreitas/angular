@@ -1,9 +1,9 @@
 <div class="ui raised segment">
   <h2 class="ui header">Cadastro de Município</h2>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="ui form">
+  <form #f="ngForm" (ngSubmit)="gravar(f.value)" class="ui form">
     <div class="field">
       <label for="nomeMunicipio">Nome do Município:</label>
-      <input type="text" id="nomeMunicipio" placeholder="Nome do Municipio" name="nomeMunicipio" ngModel>
+      <input type="text" id="nomeMunicipio" placeholder="Nome do Municipio" name="nomeMun" ngModel>
     </div>
     <div class="field">
       <label for="uf">Estado:</label>

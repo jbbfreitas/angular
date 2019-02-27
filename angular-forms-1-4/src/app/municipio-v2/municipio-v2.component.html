@@ -1,33 +1,66 @@
-<div class="row justify-content-center">
-    <h2 class="ui header">Cadastro de Município V2</h2>
-  <div class="col-8">
-    <form name="editForm" novalidate (ngSubmit)="save()" class="ui form" #editForm="ngForm">
+<div class="container">
 
-      <div class="form-group">
-        <label class="form-control-label" for="nomeMunicipio">Nome do Município:</label>
-        <input class="form-control" type="text" id="nomeMunicipio" placeholder="Nome do Municipio" name="nomeMunicipio"
-          [(ngModel)]="nomeMunicipio" required minlength="3" maxlength="50">
-        <div [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
-          <small class="form-text text-danger" [hidden]="!editForm.controls.nomeMunicipio?.errors?.required">
-            O nome do município é obrigatório.
-          </small>
-          <small class="ui error message" [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
-            Nome do município deve ter entre 3 e 50 caracteres.
-          </small>
-        </div>
+  <h2>Formulário de Entrada de Dados<small>Municípios</small></h2>
+
+
+  <form name="editForm" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="group">
+      <input type="text" id="nomeMunicipio" name="nomeMunicipio" [(ngModel)]="nomeMunicipio" required minlength="3"
+        maxlength="50">
+      <div [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.nomeMunicipio?.errors?.required">
+          Campo obrigatório.
+        </small>
+        <small class="ui error message" [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
+          Deve ter entre 3 e 50 caracteres.
+        </small>
+      </div> <span class="highlight"></span>
+      <span class="bar"></span>
+      <label for="nomeMunicipio">Nome do Município:</label>
+    </div>
+
+    <div class="select">
+      <select class="select-text" name="uf" [(ngModel)]="uf" id="field_uf" required>
+        <option [ngValue]="selecione" >Selecione</option> 
+        <option value="MT">MT</option>
+        <option value="SP">SP</option>
+        <option value="RJ">RJ</option>
+        <option value="RS">RS</option>
+        <option value="RN">RN</option>
+        <option value="GO">GO</option>
+        <option value="SC">SC</option>
+        <option value="MA">MA</option>
+        <option value="TO">TO</option>
+        <option value="AM">AM</option>
+        <option value="PA">PA</option>
+        <option value="PR">PR</option>
+        <option value="MG">MG</option>
+        <option value="BA">BA</option>
+        <option value="SE">SE</option>
+        <option value="AL">AL</option>
+        <option value="RR">RR</option>
+        <option value="RO">RO</option>
+        <option value="AC">AC</option>
+        <option value="PI">PI</option>
+        <option value="PE">PE</option>
+        <option value="CE">CE</option>
+      </select>
+      <div [hidden]="!(editForm.controls.uf?.dirty && editForm.controls.uf?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.uf?.errors?.required">
+          Selecione uma UF obrigatoriamente.
+        </small>
       </div>
-      <div class="form-group">
-        <label class="form-control-label" for="uf">Estado:</label>
-        <input class="form-control" type="text" id="uf" placeholder="UF" name="uf" [(ngModel)]="uf" required>
-        <div [hidden]="!(editForm.controls.uf?.dirty && editForm.controls.uf?.invalid)">
-          <small class="form-text text-danger" [hidden]="!editForm.controls.uf?.errors?.required">
-            UF é obrigatória.
-          </small>
-        </div>
+      <span class="select-highlight"></span>
+      <span class="select-bar"></span>
+      <label class="select-label" for="uf">Estado:</label>
+    </div>
+    <div class="buttons">
+      <div [hidden]="editForm.form.invalid ">
+        <button type="submit" class="button">Gravar</button>
       </div>
-      <div>
-        <button type="submit" class="ui button">Gravar</button>
+      <div [hidden]="!editForm.form.invalid ">
+        <button disabled class="button disabled">Gravar</button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>

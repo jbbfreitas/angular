@@ -12,7 +12,7 @@ export class MunicipioV1Component implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: any): void {
+  gravar(form: any): void {
     console.log('Você submeteu o formulário:', form);
     console.log ('O nome do municipio é', form.nomeMunicipio);
   }

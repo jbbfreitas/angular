@@ -167,7 +167,7 @@ Abra a console do navegador, usando as instruções abaixo e clique no botão `S
 
 **a** Usando o Chrome ou Firefox
 
-> Pressione Ctrl + Shift + J (Windows/Linux) ou Cmd + Opt + J (Mac).
+> Pressione Ctrl + Shift + I (Windows/Linux) ou Cmd + Opt + I (Mac).
 Se o DevTools já estiver aberto, pressione o botão Console.
 
 
