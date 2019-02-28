@@ -2,9 +2,9 @@
 
 Na  versão (V7) vamos concluir as funcionalidades de nossa aplicação criando a possibilidade de alterar um município. 
 
-Para isso termos que :
+Para isso teremos que :
  
-1. Editar `MunicipioService` para o conteúdo da Listagem 1
+1. EditAlterar a classe `MunicipioService` para o conteúdo da Listagem 1
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -62,10 +62,10 @@ export class MunicipioV7Service {
 ```
 > Em (1) é declarado o método `updateMunicipio`. Esse método utiliza o método `http.put` e recebe como parâmetro  a instância de `município`.
 
-> Em (2) é declarado o método `find`. Esse método utiliza o método `http.pgetut` e recebe como parâmetro  a instância de `município`. Mais adiante ficará mais claro o 'porque' do método `find`.
+> Em (2) é declarado o método `find`. Esse método utiliza o método `http.get` e recebe como parâmetro  a instância de `município`. Mais adiante ficará mais claro o 'porque' do método `find`.
 
 
-2. Edite a view para excluir e alterar um municipios, conforme Listagem 2
+2. Altere a view para permitir excluir e alterar um municipios, conforme Listagem 2
 
 ```html
 <div class="container">
@@ -240,7 +240,8 @@ export const municipioRoute: Routes = [
 
 ###  ::: :mortar_board: Novo conceito :::
 
-> O que são `Resolvers`
+> O que são `Resolvers`?
+
 > Quando um roteamento é usado em Angular, ocorre o seguinte fluxo:
 
   1. Usuário clica no link.
