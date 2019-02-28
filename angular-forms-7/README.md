@@ -260,7 +260,7 @@ Returns Observable<T> | Promise<T> | T
 >  Sequencia dos eventos está na Figura 1
 
 <p align="center">
-  <img src="/Imagens/SequenciaEdit.png" alt="Diagrama de Sequência para edição de municipio">
+  <img src="/imagens/SequenciaEdit.png" alt="Diagrama de Sequência para edição de municipio">
 </p>
 <p align="center">
    <strong>Figura 1- Diagrama de Sequência para edição de municipio</strong> 
