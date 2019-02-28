@@ -312,7 +312,7 @@ Pode-se usar:
 ```
 
 
->  Sequencia dos eventos está na Figura 1
+> Vamos colocar tudo isso em um diagrama de sequencia dos eventos, conforme Figura 1
 
 <p align="center">
   <img src="/imagens/SequenciaEdit.png" alt="Diagrama de Sequência para edição de municipio">
