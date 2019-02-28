@@ -212,11 +212,11 @@ export const municipioRoute: Routes = [
 > O que são `Resolvers`
 > Quando um roteamento é usado em Angular, ocorre o seguinte fluxo:
 
-  1-Usuário clica no link.
-  2-O Angular executa determinado código e retorna um valor ou um objeto observável.
-  3-Pode-se coletar o valor retornado ou o `observável` no `construtor` ou no `ngOnInit`, na classe do seu componente que está prestes a ser carregado.
-  4-Os dados coletados são utilizados para um determinado propósito.
-  5-O componente é carregado.
+  1. Usuário clica no link.
+  2. O Angular executa determinado código e retorna um valor ou um objeto observável.
+  3. Pode-se coletar o valor retornado ou o `observável` no `construtor` ou no `ngOnInit`, na classe do seu componente que está prestes a ser carregado.
+  4. Os dados coletados são utilizados para um determinado propósito.
+  5. O componente é carregado.
 
 Ocorre que as Etapas 2,3 e 4 podem ser feitas com um código chamado `Resolver`.
 
