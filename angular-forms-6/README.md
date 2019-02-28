@@ -47,11 +47,11 @@ export class MunicipioV6Service {
 > Observe o trecho de código abaixo extraído da Listagem 1
 
 ```typescript
-...
+
 (1)  deleteMunicipio(municipio: IMunicipio): any {
       return this.http.delete(this.municipioUrl + '/' + municipio.id);
   }
-
+```
 > Em (1) é declarado o método `deleteMunicipio`. Esse método utiliza o método `http.delete`. Esse método recebe como parâmetro  o id do município.
 
 2. Edite a view para excluir um municipios, conforme Listagem
