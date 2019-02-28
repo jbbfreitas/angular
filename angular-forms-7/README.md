@@ -249,7 +249,8 @@ Returns Observable<T> | Promise<T> | T
 <p align="center">
     <strong>Listagem 5- Explicando a classe MunicipioResolve</strong> 
 </p>
-```
+
+
 > Em (1) temos a declarqação da classe implementando a interface Resolve (que é um `genérics`);
 
 > Em (2) temos o método `resolve()`. Esse método recebe dois parâmetros: uma `rota` e o `stauts`. No nosso caso a rota conterá `/municipio/1234` e o status conterá `edit`. Vide linha abaixo extraída da Listagem 2. Se o `id` for nulo o `resolve` retorna uma nova instância de município, senão retorna o `municipio` através do método `service.find`.
