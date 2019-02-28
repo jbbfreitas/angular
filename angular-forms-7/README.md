@@ -178,6 +178,7 @@ export class AppRoutingModule { }
     <strong>Listagem 4- Arquivo app-routing.module.ts</strong> 
 </p>
 ::: :pushpin: Importante :::
+
 > Observe que nesta implementação estamos usando um Router para o munícipio (melhor prática) 
 
 5. Altere a classe `MunicipioResolve`, conforme Listagem 5
@@ -236,6 +237,7 @@ export const municipioRoute: Routes = [
 </p>
 
 > Vamos explicar detalhadamente a Listagem 5. Primeiro vamos entender o que são `Resolvers`
+
 ###  ::: :mortar_board: Novo conceito :::
 
 > O que são `Resolvers`
