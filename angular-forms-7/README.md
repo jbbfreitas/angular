@@ -1,6 +1,6 @@
 # Angular Forms V7
 
-Na  versão (V7) vamos ampconcluir as funcionalidades de nossa aplicação criando a possibilidade de alterar um município. 
+Na  versão (V7) vamos concluir as funcionalidades de nossa aplicação criando a possibilidade de alterar um município. 
 
 Para isso termos que :
  
@@ -135,6 +135,7 @@ export class MunicipioListComponent implements OnInit {
     <strong>Listagem 3- Arquivo municipio-list.component.ts</strong> 
 </p>
 
+::: :pushpin: Importante :::
 > Observe o trecho de código abaixo extraído da Listagem 3
 
 ```typescript
