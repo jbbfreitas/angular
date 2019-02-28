@@ -55,11 +55,17 @@ export class MunicipioV7Service {
 (1)  updateMunicipio(municipio: IMunicipio): any {
     return this.http.put<IMunicipio>(this.municipioUrl , municipio);
   }
+(2)  find(id: any): any {
+    return this.http.get<IMunicipio>(this.municipioUrl + '/' + id);
+  }
 
 ```
 > Em (1) é declarado o método `updateMunicipio`. Esse método utiliza o método `http.put` e recebe como parâmetro  a instância de `município`.
 
-2. Edite a view para excluir um municipios, conforme Listagem 2
+> Em (2) é declarado o método `find`. Esse método utiliza o método `http.pgetut` e recebe como parâmetro  a instância de `município`. Mais adiante ficará mais claro o 'porque' do método `find`.
+
+
+2. Edite a view para excluir e alterar um municipios, conforme Listagem 2
 
 ```html
 <div class="container">
@@ -152,7 +158,29 @@ export class MunicipioListComponent implements OnInit {
 
 > Em (2) é aplicado um filtro no array de municipio para não incluir o município que acaba de ser excluído.
 
-4. Altere a classe `MunicipioResolve`, conforme Listagem 4
+3. Altere a classe `AppRoutingModule`, conforme Listagem 4
+
+
+```typescript
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {municipioRoute} from './municipio-v7/municipio-v7.route';
+
+@NgModule({
+  imports: [RouterModule.forRoot(municipioRoute)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+```
+<p align="center">
+    <strong>Listagem 4- Arquivo app-routing.module.ts</strong> 
+</p>
+::: :pushpin: Importante :::
+> Observe que nesta implementação estamos usando um Router para o munícipio (melhor prática) 
+
+5. Altere a classe `MunicipioResolve`, conforme Listagem 5
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -204,10 +232,10 @@ export const municipioRoute: Routes = [
 
 ```
 <p align="center">
-    <strong>Listagem 4- Arquivo municipio-v7.route.ts</strong> 
+    <strong>Listagem 5- Arquivo municipio-v7.route.ts</strong> 
 </p>
 
-> Vamos explicar detalhadamente a Listagem 4. Primeiro vamos entender o que são `Resolvers`
+> Vamos explicar detalhadamente a Listagem 5. Primeiro vamos entender o que são `Resolvers`
 ###  ::: :mortar_board: Novo conceito :::
 
 > O que são `Resolvers`
@@ -232,7 +260,7 @@ state 	RouterStateSnapshot
 Returns Observable<T> | Promise<T> | T
 
 ```
-> Vamos explicar a nossa classe Resolver. Veja a Listagem 5.
+> Vamos explicar a nossa classe Resolver. Veja a Listagem 6.
 ```typescript
 (1) export class MunicipioResolve implements Resolve<IMunicipio> {
     constructor(private service: MunicipioV7Service) {}
@@ -248,7 +276,7 @@ Returns Observable<T> | Promise<T> | T
 
 ```
 <p align="center">
-    <strong>Listagem 5- Explicando a classe MunicipioResolve</strong> 
+    <strong>Listagem 6- Explicando a classe MunicipioResolve</strong> 
 </p>
 
 
@@ -288,11 +316,11 @@ Pode-se usar:
    <strong>Figura 1- Diagrama de Sequência para edição de municipio</strong> 
 </p>
 
-5. Inicie o servidor usando a linha de comando abaixo e teste se a exclusão é bem sucedida:
+6. Pronto. Agora inicie o servidor usando a linha de comando abaixo e teste se a alteração é bem sucedida:
 
 ```
 npm start
 ```
 
-Pronto, nesta  versão fizemos a implementação de um método para excluir um município com uma classe de dados `Municipio`.
- Na próxima versão [V7](../angular-forms-7/README.md) vamos concluir o nosso CRUD para permitir alteração.
+Pronto, nesta  versão fizemos a implementação de um método para alterar um município com uma classe de dados `Municipio`.
+ Esta é a última implementação para `Municipio`.
