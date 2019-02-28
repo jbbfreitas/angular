@@ -287,6 +287,12 @@ Returns Observable<T> | Promise<T> | T
 
 > Em (2) temos o método `resolve()`. Esse método recebe dois parâmetros: uma `rota` e o `stauts`. No nosso caso a rota conterá `/municipio/1234` e o status conterá `edit` (vide linha abaixo extraída da Listagem 2). O método contém um `if`. Se o `id` for nulo o `resolve` retorna uma nova instância de município, senão retorna o `municipio` através do método `service.find`.
 
+
+```typescript
+        <td><button type="submit" [routerLink]="['/municipio', municipio.id, 'edit']" 
+```
+   
+
 > Em (3) temos uma abreviação dos operadores RxJS .
 
 Ao invés de:
@@ -305,10 +311,6 @@ Pode-se usar:
 
 ```
 
-
-```typescript
-        <td><button type="submit" [routerLink]="['/municipio', municipio.id, 'edit']" 
-```
 
 >  Sequencia dos eventos está na Figura 1
 
