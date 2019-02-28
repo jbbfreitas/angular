@@ -148,4 +148,4 @@ npm start
 ```
 
 Pronto, nesta  versão fizemos a implementação de um método para excluir um município com uma classe de dados `Municipio`.
- Na próxima versão [V7](README.V7.md)  vamos concluir o nosso CRUD para permitir alteração.
+ Na próxima versão [V7](../angular-forms-7/README.md) vamos concluir o nosso CRUD para permitir alteração.
