@@ -241,7 +241,7 @@ Returns Observable<T> | Promise<T> | T
         if (id) {
             return this.service.find(id).pipe(map((municipio: HttpResponse<Municipio>) => municipio));
         }
-        return of(new Municipio());
+(3)        return of(new Municipio());
     }
 }
 
@@ -251,9 +251,27 @@ Returns Observable<T> | Promise<T> | T
 </p>
 
 
-> Em (1) temos a declarqação da classe implementando a interface Resolve (que é um `genérics`);
+> Em (1) temos a declaração da classe que implementa a interface `Resolve` (que é um `generics`);
 
-> Em (2) temos o método `resolve()`. Esse método recebe dois parâmetros: uma `rota` e o `stauts`. No nosso caso a rota conterá `/municipio/1234` e o status conterá `edit`. Vide linha abaixo extraída da Listagem 2. Se o `id` for nulo o `resolve` retorna uma nova instância de município, senão retorna o `municipio` através do método `service.find`.
+> Em (2) temos o método `resolve()`. Esse método recebe dois parâmetros: uma `rota` e o `stauts`. No nosso caso a rota conterá `/municipio/1234` e o status conterá `edit` (vide linha abaixo extraída da Listagem 2). O método contém um `if`. Se o `id` for nulo o `resolve` retorna uma nova instância de município, senão retorna o `municipio` através do método `service.find`.
+
+```typeScript
+Muitos desenvolvedores usam uma abreviação dos operadores RxJS .
+
+Ao invés de:
+
+    Observable.of()
+    Observable.from()
+    Observable.mergeMap()
+
+Usam:
+
+    of()
+    from()
+    mergeMap()
+
+```
+
 
 ```typescript
         <td><button type="submit" [routerLink]="['/municipio', municipio.id, 'edit']" 
