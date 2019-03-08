@@ -100,45 +100,59 @@ export class MunicipioV7Service {
     <strong>Listagem 2- Arquivo municipio-list.component.html</strong> 
 </p>
 
-3. Altere a classe `MunicipioListComponent`, conforme Listagem 3
+3. Altere a classe `MunicipioV7Component`, conforme Listagem 3
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IMunicipio, Municipio } from '../shared/model/municipio.model';
-import { MunicipioV6Service } from './municipio-v6.service';
+import { IMunicipio, Municipio, Estado } from '../shared/model/municipio.model';
+import { MunicipioV7Service } from './municipio-v7.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-municipio-list',
-  templateUrl: './municipio-list.component.html',
-  styleUrls: ['./municipio-v6.component.css']
+  selector: 'app-municipio-v7',
+  templateUrl: './municipio-v7.component.html',
+  styleUrls: ['./municipio-v7.component.css']
 })
-export class MunicipioListComponent implements OnInit {
-  municipios: IMunicipio[];
+export class MunicipioV7Component implements OnInit {
+ municipio: IMunicipio ;
 
-  constructor(private router: Router, private municipioService: MunicipioV6Service) {
+  constructor(private router: Router, private municipioService: MunicipioV7Service,
+    private activatedRoute: ActivatedRoute) {
 
   }
+
   ngOnInit() {
-    this.municipioService.getMunicipios()
-      .subscribe( data => {
-        this.municipios = data;
-        console.log(this.municipios);
-      });
+    this.activatedRoute.data.subscribe(({ municipio }) => {
+        this.municipio = municipio;
+    });
+
   }
 
-  deleteMunicipio(municipio: Municipio): void {
-    this.municipioService.deleteMunicipio(municipio)
+  save(): void {
+    if (this.municipio.id === undefined) {
+      this.municipioService.createMunicipio(this.municipio)
       .subscribe( data => {
-        this.municipios = this.municipios.filter(u => u !== municipio);
+        alert('Municipio criado com sucesso.');
       });
-  }
 
+    } else {
+      this.municipioService.updateMunicipio(this.municipio)
+      .subscribe( data => {
+        alert('Municipio atualizado com sucesso.');
+      });
+
+    }
+
+  }
 }
+
+
+
 
 ```
 <p align="center">
-    <strong>Listagem 3- Arquivo municipio-list.component.ts</strong> 
+    <strong>Listagem 3- Arquivo municipio-v7.component.ts</strong> 
 </p>
 
 ::: :pushpin: Importante :::
