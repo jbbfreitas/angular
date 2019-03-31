@@ -5,12 +5,55 @@ Apesar de similiar à `Municipio`, tem algumas peculiaridades, dentre elas, o fa
 um relacionamento de `N:1` com `Municipio`.
 Então vamos lá, mãos à obra:
 
-Para ganharmos tempo e dada a similaridade entre Municipio e Departamento vamos usar a técnica copia e cola.
+Para ganharmos tempo, e dada a similaridade entre Municipio e Departamento, vamos usar a técnica copia e cola.
 
 
 1. Copie a pasta `angular-forms-7` para `angular-forms-8`
 
-2. Criar a classe `departamento-v8.component.ts` conforme o conteúdo da Listagem 1
+2. Na pasta `app/shared`, crie a classe `Departamento` e a interface `IDepartamento` ambas no arquivo `departamento.model.ts` conforme o conteúdo da Listagem 1
+
+```typescript
+import { IMunicipio } from '../model/municipio.model';
+
+export interface IDepartamento {
+    id?: number;
+    nomeDepartamento?: string;
+    siglaDepartamento?: string;
+    cnpj?: string;
+    municipio?: IMunicipio;
+}
+
+export class Departamento implements IDepartamento {
+    constructor(
+        public id?: number,
+        public nomeDepartamento?: string,
+        public siglaDepartamento?: string,
+        public cnpj?: string,
+        public municipio?: IMunicipio
+    ) {}
+}
+
+```
+<p align="center">
+    <strong>Listagem 1- Arquivo departamento.model.ts</strong> 
+</p>
+
+::: :pushpin: Importante :::
+
+> Observe o trecho de código abaixo extraído da Listagem 1
+
+```typescript
+
+(1)  public municipio?: IMunicipio
+
+```
+> Em (1) é declarado o `municipio` como sendo do tipo `IMunicipio`. Isso porque existe ai um relacionamento `N:1`.
+
+
+
+3. Na pasta `app`, crie a classe `DepartamentoV8Component` no arquivo `departamento.model.ts` conforme o conteúdo da Listagem 2
+
+4. Na pasta `app`, crie a classe `DepartamentoV8Component` no arquivo `departamento-v8.component.ts` conforme o conteúdo da Listagem 3
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -70,12 +113,12 @@ export class DepartamentoV8Component implements OnInit {
 }
 ```
 <p align="center">
-    <strong>Listagem 1- Arquivo municipio-v7.service.ts</strong> 
+    <strong>Listagem 3- Arquivo departamento-v8.component.ts</strong> 
 </p>
 
 ::: :pushpin: Importante :::
 
-> Observe o trecho de código abaixo extraído da Listagem 1
+> Observe o trecho de código abaixo extraído da Listagem 3
 
 ```typescript
 
