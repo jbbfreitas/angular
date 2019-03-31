@@ -1,8 +1,8 @@
 # Angular Forms V8
 
-Na  versão (V8) vamos construir a funcionalidade de nossa aplicação para manter Departamento. 
-Apesar de similiar à Municipio, tem algumas peculiaridades, dentre elas, o fato de o Departamento possuir
-um relacionamento de N:1 com Municipio.
+Na  versão (V8) vamos construir a funcionalidade de nossa aplicação para manter `Departamento`. 
+Apesar de similiar à `Municipio`, tem algumas peculiaridades, dentre elas, o fato de o Departamento possuir
+um relacionamento de `N:1` com `Municipio`.
 Então vamos lá, mãos à obra:
 
 Para ganharmos tempo e dada a similaridade entre Municipio e Departamento vamos usar a técnica copia e cola.
