@@ -55,7 +55,58 @@ export interface IDepartamento {
 
 
 
-3. Na pasta `app`, crie a classe `DepartamentoV8Component` no arquivo `departamento.model.ts` conforme o conteúdo da Listagem 2
+3. Crie a pasta `app/departamento-v8` e nessa pasta, crie a classe `DepartamentoV8Service` no arquivo `departamento-v8.service.ts` conforme o conteúdo da Listagem 2
+
+
+```typescript
+import { Injectable } from '@angular/core';
+import { IDepartamento, Departamento } from '../shared/model/departamento.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DepartamentoV8Service {
+  constructor(private http: HttpClient) {}
+
+  private departamentoUrl = '/api/departamentos';
+
+
+  createDepartamento(departamento: IDepartamento): any {
+    return this.http.post<IDepartamento>(this.departamentoUrl , departamento);
+  }
+  getDepartamentos(): any {
+    return this.http.get<IDepartamento[]>(this.departamentoUrl );
+  }
+  deleteDepartamento(departamento: IDepartamento): any {
+      return this.http.delete(this.departamentoUrl + '/' + departamento.id);
+  }
+  updateDepartamento(departamento: IDepartamento): any {
+    return this.http.put<IDepartamento>(this.departamentoUrl , departamento);
+  }
+  find(id: any): any {
+    return this.http.get<IDepartamento>(this.departamentoUrl + '/' + id);
+}
+
+
+}
+
+
+```
+<p align="center">
+    <strong>Listagem 2- Arquivo departamento-v8.service.ts</strong> 
+</p>
+
+::: :pushpin: Importante :::
+
+> Observe que essa listagem é literalmente igual à sua correspondente para `Municipio`
+
+
 
 4. Na pasta `app`, crie a classe `DepartamentoV8Component` no arquivo `departamento-v8.component.ts` conforme o conteúdo da Listagem 3
 
