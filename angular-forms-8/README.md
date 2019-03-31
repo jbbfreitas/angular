@@ -43,8 +43,12 @@ export class Departamento implements IDepartamento {
 > Observe o trecho de código abaixo extraído da Listagem 1
 
 ```typescript
+    id?: number;
+    nomeDepartamento?: string;
+    siglaDepartamento?: string;
+    cnpj?: string;
+(1) municipio?: IMunicipio;
 
-(1)  public municipio?: IMunicipio
 
 ```
 > Em (1) é declarado o `municipio` como sendo do tipo `IMunicipio`. Isso porque existe ai um relacionamento `N:1`.
