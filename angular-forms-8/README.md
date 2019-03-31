@@ -216,9 +216,13 @@ export class DepartamentoV8Component implements OnInit {
 }
 ```
 > (1) - Declaração da variável `departamento`. Essa vairável será utilizada para mostrar os campos do `Departamento`
+
 > (2) - Declara um array de municípios que será utilizada na combo para exibir e selecionar os municipios.
+
 > (3),(4) - Injeção dos dois serviços que serão utilizados neste componente: MunicipioV7Service e DepartamentoV8Service
+
 > (5),(6) - No método `ngOnInit` é feito uma busca na tabelas `Departamento` e `Municipio` associando-os às variáveis locais.
+
 > (7) - Esse método será utilizado no carregamento da combo de municipions. Vide Listagem 4.
 
 ====parei aqui
