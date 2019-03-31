@@ -1,0 +1,79 @@
+<div class="container">
+
+  <h2>Formulário de Entrada de Dados<small>Departamentos</small></h2>
+
+
+  <form name="editForm" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="group">
+      <input type="text" id="nomeDepartamento" name="nomeDepartamento" [(ngModel)]="departamento.nomeDepartamento" required minlength="3"
+        maxlength="50">
+      <div [hidden]="!(editForm.controls.nomeDepartamento?.dirty && editForm.controls.nomeDepartamento?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.nomeDepartamento?.errors?.required">
+          Campo obrigatório.
+        </small>
+        <small class="ui error message" [hidden]="!(editForm.controls.nomeDepartamento?.dirty && editForm.controls.nomeDepartamento?.invalid)">
+          Deve ter entre 3 e 50  caracteres.
+        </small>
+      </div> <span class="highlight"></span>
+      <span class="bar"></span>
+      <label for="nomeDepartamento">Nome do Departamento:</label>
+    </div>
+
+    <div class="group">
+      <input type="text" id="siglaDepartamento" name="siglaDepartamento" [(ngModel)]="departamento.siglaDepartamento" required minlength="5"
+        maxlength="5">
+      <div [hidden]="!(editForm.controls.siglaDepartamento?.dirty && editForm.controls.siglaDepartamento?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.siglaDepartamento?.errors?.required">
+          Campo obrigatório.
+        </small>
+        <small class="ui error message" [hidden]="!(editForm.controls.siglaDepartamento?.dirty && editForm.controls.siglaDepartamento?.invalid)">
+          Deve ter 5 caracteres.
+        </small>
+      </div> <span class="highlight"></span>
+      <span class="bar"></span>
+      <label for="siglaDepartamento">Sigla do Departamento:</label>
+    </div>
+    <div class="group">
+      <input type="text" id="cnpj" name="cnpj" [(ngModel)]="departamento.cnpj" required minlength="14"
+        maxlength="14">
+      <div [hidden]="!(editForm.controls.cnpj?.dirty && editForm.controls.cnpj?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.cnpj?.errors?.required">
+          Campo obrigatório.
+        </small>
+        <small class="ui error message" [hidden]="!(editForm.controls.cnpj?.dirty && editForm.controls.cnpj?.invalid)">
+          Deve ter 14 caracteres.
+        </small>
+      </div> <span class="highlight"></span>
+      <span class="bar"></span>
+      <label for="cnpj">CNPJ do Departamento:</label>
+    </div>
+   
+
+
+
+
+
+    <div class="select">
+      <select class="select-text" name="municipio" [(ngModel)]="departamento.municipio" id="field_municipio" required>
+        <option [ngValue]="null"></option>
+        <option [ngValue]="municipioOption.id === departamento.municipio?.id ? departamento.municipio : municipioOption" *ngFor="let municipioOption of municipios; trackBy: trackMunicipioById">{{municipioOption.nomeMunicipio}}</option>
+    </select>
+      <div [hidden]="!(editForm.controls.departamento?.dirty && editForm.controls.departamento?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.departamento?.errors?.required">
+          Selecione um Municipio obrigatoriamente.
+        </small>
+      </div>
+      <span class="select-highlight"></span>
+      <span class="select-bar"></span>
+      <label class="select-label" for="Municipio">Municipio:</label>
+    </div>
+    <div class="buttons">
+      <div [hidden]="editForm.form.invalid ">
+        <button type="submit" class="button">Gravar</button>
+      </div>
+      <div [hidden]="!editForm.form.invalid ">
+        <button disabled class="button disabled">Gravar</button>
+      </div>
+    </div>
+  </form>
+</div>
