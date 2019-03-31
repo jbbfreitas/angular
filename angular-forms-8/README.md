@@ -104,11 +104,9 @@ export class DepartamentoV8Service {
 
 ::: :pushpin: Importante :::
 
-> Observe que essa listagem é literalmente igual à sua correspondente para `Municipio`
+> Observe que essa listagem é literalmente igual à sua correspondente para `Municipio` e, portanto, dispensa maiores comentérios.
 
-
-
-4. Na pasta `app`, crie a classe `DepartamentoV8Component` no arquivo `departamento-v8.component.ts` conforme o conteúdo da Listagem 3
+4. Na pasta `app/departamento-v8`, crie a classe `DepartamentoV8Component` no arquivo `departamento-v8.component.ts` conforme o conteúdo da Listagem 3
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -177,19 +175,53 @@ export class DepartamentoV8Component implements OnInit {
 
 ```typescript
 
-(1)  updateMunicipio(municipio: IMunicipio): any {
-    return this.http.put<IMunicipio>(this.municipioUrl , municipio);
-  }
-(2)  find(id: any): any {
-    return this.http.get<IMunicipio>(this.municipioUrl + '/' + id);
+export class DepartamentoV8Component implements OnInit {
+ (1) departamento: IDepartamento ;
+ (2) municipios: IMunicipio[];
+
+  constructor(private router: Router, (3)private departamentoService: DepartamentoV8Service,
+    (4)private municipioService: MunicipioV7Service, private activatedRoute: ActivatedRoute) {
+
   }
 
+  ngOnInit() {
+    this.activatedRoute.data.subscribe(({ departamento }) => {
+       (5) this.departamento = departamento;
+    });
+    this.municipioService.getMunicipios().subscribe(
+      data => {
+        (6)  this.municipios = data;
+      }
+     );
+  }
+
+  save(): void {
+    if (this.departamento.id === undefined) {
+      this.departamentoService.createDepartamento(this.departamento)
+      .subscribe( data => {
+        alert('Departamento criado com sucesso.');
+      });
+
+    } else {
+      this.departamentoService.updateDepartamento(this.departamento)
+      .subscribe( data => {
+        alert('Departamento atualizado com sucesso.');
+      });
+
+    }
+
+  }
+ (7) trackMunicipioById(index: number, item: IMunicipio) {
+    return item.id;
+}
 ```
-> Em (1) é declarado o método `updateMunicipio`. Esse método utiliza o método `http.put` e recebe como parâmetro  a instância de `município`.
+> (1) - Declaração da variável `departamento`. Essa vairável será utilizada para mostrar os campos do `Departamento`
+> (2) - Declara um array de municípios que será utilizada na combo para exibir e selecionar os municipios.
+> (3),(4) - Injeção dos dois serviços que serão utilizados neste componente: MunicipioV7Service e DepartamentoV8Service
+> (5),(6) - No método `ngOnInit` é feito uma busca na tabelas `Departamento` e `Municipio` associando-os às variáveis locais.
+> (7) - Esse método será utilizado no carregamento da combo de municipions. Vide Listagem 4.
 
-> Em (2) é declarado o método `find`. Esse método utiliza o método `http.get` e recebe como parâmetro  a instância de `município`. Mais adiante ficará mais claro o 'porque' do método `find`.
-
-
+====parei aqui
 2. Altere a view para permitir excluir e alterar um municipios, conforme Listagem 2
 
 ```html
