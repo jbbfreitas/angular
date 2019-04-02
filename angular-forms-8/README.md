@@ -314,15 +314,16 @@ export class DepartamentoV8Component implements OnInit {
 
 ::: :pushpin: Importante :::
 
-> Observe o trecho de código abaixo extraído da Listagem 4
+> Observe o trecho de código abaixo, extraído da Listagem 4
 
-```html
+```typescript
       <select class="select-text" name="municipio" [(ngModel)]="departamento.municipio" id="field_municipio" required>
         <option [ngValue]="null"></option>
-        <option [ngValue]="municipioOption.id === departamento.municipio?.id ? departamento.municipio : municipioOption" *ngFor="let municipioOption of municipios; trackBy: trackMunicipioById">{{municipioOption.nomeMunicipio}}</option>
+        <option [ngValue]="municipioOption.id === departamento.municipio?.id ? departamento.municipio : municipioOption" *ngFor="let municipioOption of municipios; <b>trackBy</b>: trackMunicipioById">{{municipioOption.nomeMunicipio}}</option>
       </select>
 
 ```
+
 > Esse é o trecho de código que apresenta novidades, permitindo que seja apresentada, para seleção pelo usuário, uma combo contendo os municípios cadastrados. Observe atentamente a tag `<option></option>` que possui como parâmetros a diretiva `*ngFor` e o `trackBy`. A diretiva `*ngFor` faz uma iteração na coleção `municipios`, declarada no componente `departamento-v8.component.ts`. Já o parâmetro `trackBy` aponta para o método `trackMunicipioById`, também declarado no  componente `departamento-v8.component.ts`. Se você analisar esse método, verá que ele simplesmente retorna o `id` do `municipio`. A função do método `trackBy` é permitir que o Angular identifique, via um `id`,  qual o item está sendo adicionado ou removido.
 
 
