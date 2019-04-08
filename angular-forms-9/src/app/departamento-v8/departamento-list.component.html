@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Lista de Departamentos</h2>
+
+  <table class="rtable">
+    <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Nome</th>
+        <th>Sigla</th>
+
+        <th>Editar</th>
+
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let departamento of departamentos">
+        <td> {{departamento.id}}</td>
+        <td>{{departamento.nomeDepartamento}}</td>
+        <td>{{departamento.siglaDepartamento}}</td>
+
+        <td><button type="submit" [routerLink]="['/departamento', departamento.id, 'edit']" class="btnedit">Editar</button></td>
+        <td><button class="btndel" (click)="deleteDepartamento(departamento)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

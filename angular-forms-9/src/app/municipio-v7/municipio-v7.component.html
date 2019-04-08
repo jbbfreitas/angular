@@ -1,0 +1,66 @@
+<div class="container">
+
+  <h2>Formulário de Entrada de Dados<small>Municípios</small></h2>
+
+
+  <form name="editForm" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="group">
+      <input type="text" id="nomeMunicipio" name="nomeMunicipio" [(ngModel)]="municipio.nomeMunicipio" required minlength="3"
+        maxlength="50">
+      <div [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.nomeMunicipio?.errors?.required">
+          Campo obrigatório.
+        </small>
+        <small class="ui error message" [hidden]="!(editForm.controls.nomeMunicipio?.dirty && editForm.controls.nomeMunicipio?.invalid)">
+          Deve ter entre 3 e 50 caracteres.
+        </small>
+      </div> <span class="highlight"></span>
+      <span class="bar"></span>
+      <label for="nomeMunicipio">Nome do Município:</label>
+    </div>
+
+    <div class="select">
+      <select class="select-text" name="uf" [(ngModel)]="municipio.uf" id="field_uf" required>
+        <option [ngValue]="selecione">Selecione</option>
+        <option value="MT">MT</option>
+        <option value="SP">SP</option>
+        <option value="RJ">RJ</option>
+        <option value="RS">RS</option>
+        <option value="RN">RN</option>
+        <option value="GO">GO</option>
+        <option value="SC">SC</option>
+        <option value="MA">MA</option>
+        <option value="TO">TO</option>
+        <option value="AM">AM</option>
+        <option value="PA">PA</option>
+        <option value="PR">PR</option>
+        <option value="MG">MG</option>
+        <option value="BA">BA</option>
+        <option value="SE">SE</option>
+        <option value="AL">AL</option>
+        <option value="RR">RR</option>
+        <option value="RO">RO</option>
+        <option value="AC">AC</option>
+        <option value="PI">PI</option>
+        <option value="PE">PE</option>
+        <option value="CE">CE</option>
+      </select>
+      <div [hidden]="!(editForm.controls.uf?.dirty && editForm.controls.uf?.invalid)">
+        <small class="form-text text-danger" [hidden]="!editForm.controls.uf?.errors?.required">
+          Selecione uma UF obrigatoriamente.
+        </small>
+      </div>
+      <span class="select-highlight"></span>
+      <span class="select-bar"></span>
+      <label class="select-label" for="uf">Estado:</label>
+    </div>
+    <div class="buttons">
+      <div [hidden]="editForm.form.invalid ">
+        <button type="submit" class="button">Gravar</button>
+      </div>
+      <div [hidden]="!editForm.form.invalid ">
+        <button disabled class="button disabled">Gravar</button>
+      </div>
+    </div>
+  </form>
+</div>
