@@ -10,7 +10,7 @@ Para ganharmos tempo, e dada a similaridade entre Municipio e Departamento, vamo
 
 1. Copie a pasta `angular-forms-7` para `angular-forms-8`
 
-2. Na pasta `app/shared`, crie a classe `Departamento` e a interface `IDepartamento` ambas no arquivo `departamento.model.ts` conforme o conteúdo da Listagem 1
+2. Na pasta `app/shared/model`, crie a classe `Departamento` e a interface `IDepartamento` ambas no arquivo `departamento.model.ts` conforme o conteúdo da Listagem 1
 
 ```typescript
 import { IMunicipio } from '../model/municipio.model';
