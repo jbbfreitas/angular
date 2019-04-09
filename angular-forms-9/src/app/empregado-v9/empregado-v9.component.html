@@ -1,0 +1,143 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+          <h2>Criar oo editar um Empregado</h2>
+          <div>
+              <div class="form-group" [hidden]="!empregado.id">
+                  <label for="id" >ID</label>
+                  <input type="text" class="form-control" id="id" name="id"
+                      [(ngModel)]="empregado.id" readonly />
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_nomeEmpregado">Nome Empregado</label>
+                  <input type="text" class="form-control" name="nomeEmpregado" id="field_nomeEmpregado"
+                      [(ngModel)]="empregado.nomeEmpregado" required minlength="10" maxlength="80"/>
+                  <div [hidden]="!(editForm.controls.nomeEmpregado?.dirty && editForm.controls.nomeEmpregado?.invalid)">
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.nomeEmpregado?.errors?.required" >
+                      Obrigatório informar o nome do Empregado.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.nomeEmpregado?.errors?.minlength" >
+                      O nome deve ter no mínimo 10 caracteres.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.nomeEmpregado?.errors?.maxlength" >
+                      O tamanho máximo do nome é de 80 caracteres.
+                      </small>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_dataNascimento">Data Nascimento</label>
+                  <input type="text" class="form-control" name="dataNascimento" id="field_dataNascimento"
+                      [(ngModel)]="empregado.dataNascimento" required minlength="10" maxlength="10"/>
+                  <div [hidden]="!(editForm.controls.dataNascimento?.dirty && editForm.controls.dataNascimento?.invalid)">
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.dataNascimento?.errors?.required" >
+                      Obrigatório informar o nome do Empregado.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.dataNascimento?.errors?.minlength" >
+                      Data deve estar no formato DD/MM/AAAA.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.dataNascimento?.errors?.maxlength" >
+                      Data deve estar no formato DD/MM/AAAA.
+                      </small>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label" for="field_cpf">Cpf</label>
+                  <input type="text" class="form-control" name="cpf" id="field_cpf"
+                      [(ngModel)]="empregado.cpf" required minlength="11" maxlength="11"/>
+                  <div [hidden]="!(editForm.controls.cpf?.dirty && editForm.controls.cpf?.invalid)">
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.cpf?.errors?.required" >
+                      CPF é obrigatório.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.cpf?.errors?.minlength" >
+                      Tamanho mímino 11.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.cpf?.errors?.maxlength" >
+                      Tamanho máximo 11.
+                      </small>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_dataAdmissao">Data Admissao</label>
+                  <input type="text" class="form-control" name="dataAdmissao" id="field_dataAdmissao"
+                      [(ngModel)]="empregado.dataAdmissao" required minlength="10" maxlength="10"/>
+                  <div [hidden]="!(editForm.controls.dataAdmissao?.dirty && editForm.controls.dataAdmissao?.invalid)">
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.dataAdmissao?.errors?.required" >
+                      Obrigatório informar a data de admissão.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.dataAdmissao?.errors?.minlength" >
+                      Data deve estar no formato DD/MM/AAAA.
+                      </small>
+                      <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.dataAdmissao?.errors?.maxlength" >
+                      Data deve estar no formato DD/MM/AAAA.
+                      </small>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_dataDemissao">Data Demissão</label>
+                  <input type="text" class="form-control" name="dataDemissao" id="field_dataDemissao"
+                      [(ngModel)]="empregado.dataDemissao" />
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_dataObito">Data Demissão</label>
+                  <input type="text" class="form-control" name="dataObito" id="field_dataObito"
+                      [(ngModel)]="empregado.dataObito" />
+              </div>
+
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_municipioNascimento">Municipio Nascimento</label>
+                  <select class="form-control" id="field_municipioNascimento" name="municipioNascimento" [(ngModel)]="empregado.municipioNascimento" >
+                      <option [ngValue]="null"></option>
+                      <option [ngValue]="municipioOption.id === empregado.municipioNascimento?.id ? empregado.municipioNascimento : municipioOption" *ngFor="let municipioOption of municipios; trackBy: trackMunicipioById">{{municipioOption.nomeMunicipio}}</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_municipioResidencial">Municipio Residencial</label>
+                  <select class="form-control" id="field_municipioResidencial" name="municipioResidencial" [(ngModel)]="empregado.municipioResidencial"  required>
+                      <option *ngIf="!editForm.value.municipioResidencial" [ngValue]="null" selected></option>
+                      <option [ngValue]="municipioOption.id === empregado.municipioResidencial?.id ? empregado.municipioResidencial : municipioOption" *ngFor="let municipioOption of municipios; trackBy: trackMunicipioById">{{municipioOption.nomeMunicipio}}</option>
+                  </select>
+              </div>
+              <div [hidden]="!(editForm.controls.municipioResidencial?.dirty && editForm.controls.municipioResidencial?.invalid)">
+                  <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.municipioResidencial?.errors?.required" >
+                      Favor informar Muncípio Residencial.
+                  </small>
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label"  for="field_departamento">Departamento</label>
+                  <select class="form-control" id="field_departamento" name="departamento" [(ngModel)]="empregado.departamento"  required>
+                      <option *ngIf="!editForm.value.departamento" [ngValue]="null" selected></option>
+                      <option [ngValue]="departamentoOption.id === empregado.departamento?.id ? empregado.departamento : departamentoOption" *ngFor="let departamentoOption of departamentos; trackBy: trackDepartamentoById">{{departamentoOption.nomeDepartamento}}</option>
+                  </select>
+              </div>
+              <div [hidden]="!(editForm.controls.departamento?.dirty && editForm.controls.departamento?.invalid)">
+                  <small class="form-text text-danger"
+                      [hidden]="!editForm.controls.departamento?.errors?.required" >
+                      Favor informar Departamento.
+                  </small>
+              </div>
+          </div>
+          <div>
+              <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                  <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Cancelar</span>
+              </button>
+              <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                  <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span >Salvar</span>
+              </button>
+          </div>
+      </form>
+  </div>
+</div>

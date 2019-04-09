@@ -2,7 +2,7 @@
 
 Na  última versão (V9) vamos construir a funcionalidade de nossa aplicação para manter `Emprgado`. 
 Apesar de similiar à `Departamento`, tem algumas peculiaridades, dentre elas, o fato de o Empregado possuir
-um relacionamento de `N:1` com `Municipio` duas vezes: Municipio de nascimento e Municipio Residencial. Além disso `Empregado` também se relaciona com `Departamento` criado na V8.
+um relacionamento de `N:1` com `Municipio` duas vezes: Municipio de nascimento e Municipio Residencial. Além disso `Empregado` também se relaciona com `Departamento` criado na V8. Finalmente há uma outra novidade: a classe `Emregado` irá trabalhar com datas, então vamos precisar importar a classe `moment`.
 
 Vamos matar mais essa? 
 Então vamos lá, mãos à obra:
@@ -12,32 +12,55 @@ Para ganharmos tempo, e dada a similaridade entre Emoregada e Departamento, vamo
 
 1. Copie a pasta `angular-forms-8` para `angular-forms-9`
 
-2. Na pasta `app/shared/model`, crie a classe `Departamento` e a interface `IDepartamento` ambas no arquivo `departamento.model.ts` conforme o conteúdo da Listagem 1
+2. Instale a classe `moment`. No `prompt` digite 
+
+> `npm install moment --save`
+
+::: :pushpin: Importante :::
+
+> Essa classe permite trabalhar com datas no Angular.
+
+
+
+3. Na pasta `app/shared/model`, crie a classe `Empregado` e a interface `IEmpregado` ambas no arquivo `empregado.model.ts` conforme o conteúdo da Listagem 1
 
 ```typescript
+import { Moment } from 'moment';
 import { IMunicipio } from '../model/municipio.model';
+import { IDepartamento } from '../model/departamento.model';
 
-export interface IDepartamento {
+export interface IEmpregado {
     id?: number;
-    nomeDepartamento?: string;
-    siglaDepartamento?: string;
-    cnpj?: string;
-    municipio?: IMunicipio;
+    nomeEmpregado?: string;
+    dataNascimento?: Moment;
+    cpf?: string;
+    dataAdmissao?: Moment;
+    dataDemissao?: Moment;
+    dataObito?: Moment;
+    municipioNascimento?: IMunicipio;
+    municipioResidencial?: IMunicipio;
+    departamento?: IDepartamento;
 }
 
-export class Departamento implements IDepartamento {
+export class Empregado implements IEmpregado {
     constructor(
         public id?: number,
-        public nomeDepartamento?: string,
-        public siglaDepartamento?: string,
-        public cnpj?: string,
-        public municipio?: IMunicipio
+        public nomeEmpregado?: string,
+        public dataNascimento?: Moment,
+        public cpf?: string,
+        public dataAdmissao?: Moment,
+        public dataDemissao?: Moment,
+        public dataObito?: Moment,
+        public municipioNascimento?: IMunicipio,
+        public municipioResidencial?: IMunicipio,
+        public departamento?: IDepartamento
     ) {}
 }
 
+
 ```
 <p align="center">
-    <strong>Listagem 1- Arquivo departamento.model.ts</strong> 
+    <strong>Listagem 1- Arquivo empregado.model.ts</strong> 
 </p>
 
 ::: :pushpin: Importante :::
@@ -45,66 +68,140 @@ export class Departamento implements IDepartamento {
 > Observe o trecho de código abaixo extraído da Listagem 1
 
 ```typescript
-export interface IDepartamento {
-    id?: number;
-    nomeDepartamento?: string;
-    siglaDepartamento?: string;
-    cnpj?: string;
-(1) municipio?: IMunicipio;
+(1)import { Moment } from 'moment';
+...
+(2)        public dataNascimento?: Moment,
+(3)        public dataAdmissao?: Moment,
+(4)        public dataDemissao?: Moment
+(5)        public dataObito?: Moment,
+
+
 }
 ```
-> Em (1) é declarado o `municipio` como sendo do tipo `IMunicipio`. Isso porque existe ai um relacionamento `N:1`.
+> Em (1) está sendo importada a classe `Moment` que será usada nas 4 datas da classe `Empregado`.
+
+> Em (2),(3),(4) e (5) estão sendo declaradas variáveis data que são do tipo  `Moment` .
+
+4. Na pasta `app/shared/constants`, crie o arquivo  `input.constants.ts` conforme o conteúdo da Listagem 2
 
 
+```typescript
+export const DATE_FORMAT = 'DD/MM/YYYY';
+export const DATE_TIME_FORMAT = 'DD/MM/YYYYTHH:mm';
 
-3. Crie a pasta `app/departamento-v8` e nessa pasta, crie a classe `DepartamentoV8Service` no arquivo `departamento-v8.service.ts` conforme o conteúdo da Listagem 2
+
+```
+<p align="center">
+    <strong>Listagem 2- Arquivo input.contants.ts</strong> 
+</p>
+
+4. Crie a pasta `app/empregado-v9` e nessa pasta, crie a classe `EmpregadoV9Service` no arquivo `empregado-v9.service.ts` conforme o conteúdo da Listagem 2
 
 
 ```typescript
 import { Injectable } from '@angular/core';
-import { IDepartamento, Departamento } from '../shared/model/departamento.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import * as moment from 'moment';
+import { DATE_FORMAT } from '../shared/constants/input.constants';
+import { map } from 'rxjs/operators';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { IEmpregado } from '../shared/model/empregado.model';
 
-
-@Injectable({
-  providedIn: 'root'
-})
-export class DepartamentoV8Service {
-  constructor(private http: HttpClient) {}
-
-  private departamentoUrl = '/api/departamentos';
+type EntityResponseType = HttpResponse<IEmpregado>;
+type EntityArrayResponseType = HttpResponse<IEmpregado[]>;
 
 
-  createDepartamento(departamento: IDepartamento): any {
-    return this.http.post<IDepartamento>(this.departamentoUrl , departamento);
-  }
-  getDepartamentos(): any {
-    return this.http.get<IDepartamento[]>(this.departamentoUrl );
-  }
-  deleteDepartamento(departamento: IDepartamento): any {
-      return this.http.delete(this.departamentoUrl + '/' + departamento.id);
-  }
-  updateDepartamento(departamento: IDepartamento): any {
-    return this.http.put<IDepartamento>(this.departamentoUrl , departamento);
-  }
-  find(id: any): any {
-    return this.http.get<IDepartamento>(this.departamentoUrl + '/' + id);
-}
+@Injectable({ providedIn: 'root' })
+export class EmpregadoService {
+    public empregadoUrl =   '/api/empregados';
 
+    constructor(private http: HttpClient) {}
 
+    create(empregado: IEmpregado): Observable<EntityResponseType> {
+        const copy = this.convertDateFromClient(empregado);
+        return this.http
+            .post<IEmpregado>(this.empregadoUrl, copy, { observe: 'response' })
+            .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+    }
+
+    update(empregado: IEmpregado): Observable<EntityResponseType> {
+        const copy = this.convertDateFromClient(empregado);
+        return this.http
+            .put<IEmpregado>(this.empregadoUrl, copy, { observe: 'response' })
+            .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+    }
+
+    find(id: number): Observable<EntityResponseType> {
+        return this.http
+            .get<IEmpregado>(`${this.empregadoUrl}/${id}`, { observe: 'response' })
+            .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+    }
+
+    query(req?: any): Observable<EntityArrayResponseType> {
+        return this.http
+            .get<IEmpregado[]>(this.empregadoUrl, {  observe: 'response' })
+            .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+    }
+
+    delete(id: number): Observable<HttpResponse<any>> {
+        return this.http.delete<any>(`${this.empregadoUrl}/${id}`, { observe: 'response' });
+    }
+
+    private convertDateFromClient(empregado: IEmpregado): IEmpregado {
+        const copy: IEmpregado = Object.assign({}, empregado, {
+            dataNascimento:
+                empregado.dataNascimento != null && empregado.dataNascimento.isValid()
+                    ? empregado.dataNascimento.format(DATE_FORMAT)
+                    : null,
+            dataAdmissao:
+                empregado.dataAdmissao != null && empregado.dataAdmissao.isValid() ? empregado.dataAdmissao.format(DATE_FORMAT) : null,
+            dataDemissao:
+                empregado.dataDemissao != null && empregado.dataDemissao.isValid() ? empregado.dataDemissao.format(DATE_FORMAT) : null,
+            dataObito: empregado.dataObito != null && empregado.dataObito.isValid() ? empregado.dataObito.format(DATE_FORMAT) : null
+        });
+        return copy;
+    }
+
+    private convertDateFromServer(res: EntityResponseType): EntityResponseType {
+        res.body.dataNascimento = res.body.dataNascimento != null ? moment(res.body.dataNascimento) : null;
+        res.body.dataAdmissao = res.body.dataAdmissao != null ? moment(res.body.dataAdmissao) : null;
+        res.body.dataDemissao = res.body.dataDemissao != null ? moment(res.body.dataDemissao) : null;
+        res.body.dataObito = res.body.dataObito != null ? moment(res.body.dataObito) : null;
+        return res;
+    }
+
+    private convertDateArrayFromServer(res: EntityArrayResponseType): EntityArrayResponseType {
+        res.body.forEach((empregado: IEmpregado) => {
+            empregado.dataNascimento = empregado.dataNascimento != null ? moment(empregado.dataNascimento) : null;
+            empregado.dataAdmissao = empregado.dataAdmissao != null ? moment(empregado.dataAdmissao) : null;
+            empregado.dataDemissao = empregado.dataDemissao != null ? moment(empregado.dataDemissao) : null;
+            empregado.dataObito = empregado.dataObito != null ? moment(empregado.dataObito) : null;
+        });
+        return res;
+    }
 }
 
 
 ```
 <p align="center">
-    <strong>Listagem 2- Arquivo departamento-v8.service.ts</strong> 
+    <strong>Listagem 3- Arquivo empregado-v9.service.ts</strong> 
 </p>
 
 ::: :pushpin: Importante :::
+
+
+Não esquecer
+
+
+
+
+
+
+
+
+
+
 
 > Observe que essa listagem é literalmente igual à sua correspondente para `Municipio` e, portanto, dispensa maiores comentérios.
 
