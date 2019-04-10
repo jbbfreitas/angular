@@ -343,3 +343,7 @@ npm start
 
 Pronto, nesta  versão fizemos a implementação de um método para alterar um município com uma classe de dados `Municipio`.
  Esta é a última implementação para `Municipio`.
+
+
+Na próxima versão [V8](../angular-forms-8/README.md) vamos implementar `Manter Departamentos`.
+

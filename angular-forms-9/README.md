@@ -722,3 +722,10 @@ npm start
 
 
 Parabéns, você concluiu o estudo de caso `Manter Empregados`. 
+
+
+Com isso concluimos os nossos 3 Casos de Uso. Obrigado por chegar até aqui!
+
+
+
+
