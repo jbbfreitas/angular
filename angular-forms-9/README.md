@@ -686,7 +686,7 @@ export class AppModule { }
 
 ```
 <p align="center">
-    <strong>Listagem 09- Arquivo app.module.ts</strong> 
+    <strong>Listagem 9- Arquivo app.module.ts</strong> 
 </p>
 
 ::: :pushpin: Importante :::
