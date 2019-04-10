@@ -599,3 +599,6 @@ npm start
 ```
 
 Parabéns, você concluiu o estudo de caso `Manter Departamentos`. 
+
+Na próxima versão [V9](../angular-forms-9/README.md) vamos implementar `Manter Empregado`.
+
