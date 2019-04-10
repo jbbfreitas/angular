@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { IEmpregado, Empregado } from '../shared/model/empregado.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +31,4 @@ export class EmpregadoV9Service {
   find(id: any): any {
     return this.http.get<IEmpregado>(this.empregadoUrl + '/' + id);
 }
-
-
 }

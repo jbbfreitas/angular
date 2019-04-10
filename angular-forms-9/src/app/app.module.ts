@@ -15,7 +15,6 @@ import { DepartamentoV8Component } from './departamento-v8/departamento-v8.compo
 import { DepartamentoListComponent } from './departamento-v8/departamento-list.component';
 import { DepartamentoV8Service } from './departamento-v8/departamento-v8.service';
 import {departamentoRoute} from './departamento-v8/departamento-v8.route';
-
 import { EmpregadoRoutingModule } from './empregado-routing.module';
 import { EmpregadoV9Component } from './empregado-v9/empregado-v9.component';
 import { EmpregadoListComponent } from './empregado-v9/empregado-list.component';
@@ -37,7 +36,7 @@ const ENTITY_STATES = [...empregadoRoute, ...municipioRoute, ...departamentoRout
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MunicipioRoutingModule, 
+    FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MunicipioRoutingModule,
     DepartamentoRoutingModule, EmpregadoRoutingModule, HttpClientModule,
     RouterModule.forChild(ENTITY_STATES)
   ],

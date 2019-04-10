@@ -16,9 +16,11 @@
     <tbody>
       <tr *ngFor="let empregado of empregados">
         <td> {{empregado.id}}</td>
+        <td>{{empregado.nomeEmpregado}}</td>
         <td>{{empregado.departamento.nomeDepartamento}}</td>
 
-        <td><button type="submit" [routerLink]="['/empregado', empregado.id, 'edit']" class="btnedit">Editar</button></td>
+        <td><button type="submit" [routerLink]="['/empregado', empregado.id, 'edit']" class="btnedit">Editar</button>
+        </td>
         <td><button class="btndel" (click)="deleteEmpregado(empregado)">Excluir</button></td>
       </tr>
     </tbody>
