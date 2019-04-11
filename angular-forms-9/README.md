@@ -146,7 +146,7 @@ import { EmpregadoV9Service } from '../empregado-v9/empregado-v9.service';
 @Component({
   selector: 'app-empregado-v9',
   templateUrl: './empregado-v9.component.html',
-  styleUrls: ['./departamento-v8.component.css']
+  styleUrls: ['./empregado-v9.component.css']
 })
 export class EmpregadoV9Component implements OnInit {
  empregado: IEmpregado;
@@ -197,6 +197,9 @@ export class EmpregadoV9Component implements OnInit {
     return item.id;
   }
 }
+
+
+
 ```
 <p align="center">
     <strong>Listagem 3- Arquivo empregado-v9.component.ts</strong> 
